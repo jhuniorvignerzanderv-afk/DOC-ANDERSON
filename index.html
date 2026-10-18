@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
@@ -11,13 +11,234 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Yape & Video Showcase Styles */
+    .btn-yape {
+      background: linear-gradient(135deg, #742284 0%, #9b2fae 100%);
+      color: #ffffff !important;
+      font-weight: 800;
+      border: 1.5px solid rgba(0, 209, 178, 0.55);
+      box-shadow: 0 6px 18px rgba(116, 34, 132, 0.35);
+      transition: all 0.25s ease;
+    }
+    .btn-yape:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(116, 34, 132, 0.5);
+      filter: brightness(1.07);
+    }
+    .video-yape-showcase {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: stretch;
+      margin-top: 20px;
+    }
+    .video-reel-card {
+      background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
+      border-radius: 26px;
+      padding: 24px;
+      color: #ffffff;
+      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.2);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      position: relative;
+      overflow: hidden;
+    }
+    .video-reel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+    .video-badge-live {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(244, 63, 94, 0.18);
+      border: 1px solid rgba(244, 63, 94, 0.5);
+      color: #fda4af;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+    }
+    .video-player-frame {
+      position: relative;
+      width: 100%;
+      max-width: 340px;
+      margin: 0 auto 18px;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #000;
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.45);
+      border: 2px solid rgba(56, 189, 248, 0.35);
+      aspect-ratio: 9 / 16;
+      max-height: 520px;
+    }
+    .video-player-frame video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .video-sound-btn {
+      position: absolute;
+      bottom: 16px;
+      right: 16px;
+      z-index: 5;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(8px);
+      color: #ffffff;
+      border: 1.5px solid rgba(56, 189, 248, 0.6);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+      transition: all 0.2s ease;
+    }
+    .video-sound-btn:hover {
+      background: #0284c7;
+      transform: scale(1.04);
+    }
+    /* Yape Card */
+    .yape-card {
+      background: linear-gradient(155deg, #5e196d 0%, #742284 55%, #4a1259 100%);
+      border-radius: 26px;
+      padding: 26px;
+      color: #ffffff;
+      box-shadow: 0 20px 45px rgba(116, 34, 132, 0.28);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 2px solid rgba(0, 209, 178, 0.45);
+      position: relative;
+      overflow: hidden;
+    }
+    .yape-top-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #00d1b2;
+      color: #1e1b4b;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .yape-qr-wrapper {
+      background: #ffffff;
+      border-radius: 22px;
+      padding: 16px;
+      max-width: 310px;
+      width: 100%;
+      margin: 14px auto;
+      text-align: center;
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      transition: transform 0.25s ease;
+    }
+    .yape-qr-wrapper:hover {
+      transform: scale(1.02);
+    }
+    .yape-qr-wrapper img {
+      width: 100%;
+      max-height: 360px;
+      object-fit: contain;
+      border-radius: 14px;
+      display: block;
+      margin: 0 auto;
+    }
+    .yape-holder-box {
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 16px;
+      padding: 12px 16px;
+      text-align: center;
+      margin-bottom: 14px;
+    }
+    .yape-holder-box strong {
+      display: block;
+      font-size: 1.05rem;
+      color: #ffffff;
+    }
+    .yape-holder-box span {
+      font-size: 0.85rem;
+      color: #a7f3d0;
+      font-weight: 700;
+    }
+    .yape-actions-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .btn-yape-teal {
+      background: #00d1b2;
+      color: #0f172a !important;
+      font-weight: 800;
+      border: none;
+      padding: 12px 14px;
+      border-radius: 14px;
+      cursor: pointer;
+      font-size: 0.88rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+    .btn-yape-teal:hover {
+      background: #14b8a6;
+      transform: translateY(-2px);
+    }
+    .btn-yape-white {
+      background: rgba(255, 255, 255, 0.16);
+      color: #ffffff !important;
+      font-weight: 700;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      padding: 12px 14px;
+      border-radius: 14px;
+      cursor: pointer;
+      font-size: 0.88rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+    .btn-yape-white:hover {
+      background: rgba(255, 255, 255, 0.28);
+    }
+    @media (max-width: 900px) {
+      .video-yape-showcase {
+        grid-template-columns: 1fr;
+      }
+      .yape-actions-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
 
   <!-- Top Promotional Bar -->
   <div class="top-bar">
     <span class="top-bar-badge">Promo del Mes</span>
-    <span class="top-bar-text">¡Evaluación + Plan de Sonrisa!</span>
+    <span class="top-bar-text">¡Evaluación + Plan de Sonrisa! Aceptamos Yape 💜</span>
     <a href="https://wa.me/51983104789?text=Hola%20Doc%20Anderson%2C%20vi%20su%20p%C3%A1gina%20web%20y%20deseo%20reservar%20una%20evaluaci%C3%B3n%20dental%20%F0%9F%A6%B7" target="_blank" rel="noopener">
       📲 +51 983 104 789 →
     </a>
@@ -33,12 +254,16 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="#especialidades">Especialidades</a></li>
         <li><a href="#simuladores">Simulador 3D</a></li>
-        <li><a href="#pediatria">Odontopediatría</a></li>
+        <li><a href="#video">🎬 Video</a></li>
+        <li><a href="#yape">💜 Yape</a></li>
         <li><a href="#galeria">Casos Reales</a></li>
         <li><a href="#citas">Agendar Cita</a></li>
       </ul>
 
       <div class="nav-actions">
+        <a href="#yape" class="btn btn-yape nav-btn-compact" title="Pagar o reservar con Yape">
+          <span>💜 Yape</span>
+        </a>
         <a href="https://www.instagram.com/anderson.johel?psln=dDF1ZGZvemx4YWNv" target="_blank" rel="noopener" class="btn btn-instagram nav-btn-compact" title="Síguenos en Instagram @anderson.johel">
           <span>📸 Instagram</span>
         </a>
@@ -785,6 +1010,87 @@
     </div>
   </section>
 
+  <!-- Video en Consultorio & Pagos con Yape -->
+  <section class="section" id="video">
+    <div class="section-header">
+      <span class="section-tag">Experiencia Real & Facilidades de Pago</span>
+      <h2>Conoce Nuestro Consultorio en Video y Paga Fácil con Yape</h2>
+      <p>Mira cómo trabajamos en <strong>Doc Anderson — Odontología Integral</strong> y separa tu cita o realiza tus pagos al instante escaneando nuestro QR oficial de <strong>Yape</strong>.</p>
+    </div>
+
+    <div class="video-yape-showcase">
+      <!-- Video Reel Card -->
+      <div class="video-reel-card">
+        <div>
+          <div class="video-reel-header">
+            <span class="video-badge-live">🎬 VIDEO EN CONSULTORIO</span>
+            <span style="font-size:0.82rem; color:#94a3b8; font-weight:600;">Dr. Anderson Johel</span>
+          </div>
+          <h3 style="font-size:1.35rem; margin-bottom:8px; color:#ffffff;">Atención Odontológica en Acción</h3>
+          <p style="font-size:0.92rem; color:#cbd5e1; margin-bottom:16px;">
+            Tecnología moderna, bioseguridad garantizada y un trato 100% amigable para que tu visita sea cómoda y sin dolor.
+          </p>
+        </div>
+
+        <div class="video-player-frame">
+          <video id="clinicVideo" controls autoplay muted loop playsinline preload="metadata" poster="foto5.jpg">
+            <source src="video-pompa.mp4" type="video/mp4" />
+            <source src="video%20pompa.mp4" type="video/mp4" />
+            <source src="assets/video-pompa.mp4" type="video/mp4" />
+            Tu navegador no soporta reproducción de video.
+          </video>
+          <button type="button" class="video-sound-btn" id="toggleVideoSoundBtn">
+            🔊 Activar Audio
+          </button>
+        </div>
+
+        <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center;">
+          <a href="https://wa.me/51983104789?text=Hola%20Doc%20Anderson%2C%20acabo%20de%20ver%20su%20video%20en%20la%20p%C3%A1gina%20web%20y%20quiero%20agendar%20una%20cita%20%F0%9F%A6%B7" target="_blank" rel="noopener" class="btn btn-whatsapp" style="width:100%;">
+            <span>💬 Agendar Cita tras ver el Video</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Official Yape QR Card -->
+      <div class="yape-card" id="yape">
+        <div>
+          <div class="video-reel-header">
+            <span class="yape-top-pill">💜 PAGO RÁPIDO CON YAPE</span>
+            <span style="font-size:0.82rem; color:#e9d5ff; font-weight:700;">QR Oficial Verificado</span>
+          </div>
+          <h3 style="font-size:1.35rem; margin-bottom:6px; color:#ffffff;">Reserva tu Cita o Paga tu Tratamiento con Yape</h3>
+          <p style="font-size:0.9rem; color:#f3e8ff; margin-bottom:10px;">
+            Escanea el código QR desde tu app <strong>Yape</strong> o yapea al número oficial y envíanos tu captura por WhatsApp.
+          </p>
+        </div>
+
+        <div class="yape-qr-wrapper" id="yapeQrBox" title="Toca para ampliar el QR de Yape">
+          <img src="yape.jpg" onerror="this.onerror=null;this.src='YAPE.jpeg';" alt="Código QR Oficial de Yape - Anderson Johel Pompa Castrejón" />
+          <div style="margin-top:8px; font-size:0.8rem; font-weight:800; color:#742284;">
+            🔍 Toca el QR para verlo en pantalla completa
+          </div>
+        </div>
+
+        <div>
+          <div class="yape-holder-box">
+            <span style="display:block; font-size:0.76rem; text-transform:uppercase; letter-spacing:0.05em; color:#e9d5ff; margin-bottom:2px;">Titular Oficial de Yape</span>
+            <strong>Anderson Johel Pompa Castrejón</strong>
+            <span>📱 Número Yape / WhatsApp: 983 104 789</span>
+          </div>
+
+          <div class="yape-actions-grid">
+            <button type="button" class="btn-yape-teal" id="copyYapeBtn">
+              📋 Copiar Número: 983 104 789
+            </button>
+            <a href="https://wa.me/51983104789?text=Hola%20Doc%20Anderson%20%F0%9F%A6%B7%2C%20acabo%20de%20realizar%20un%20pago%20por%20*Yape*%20(Titular%3A%20Anderson%20Johel%20Pompa%20Castrej%C3%B3n)%20y%20le%20env%C3%ADo%20mi%20comprobante%20%F0%9F%92%9C" target="_blank" rel="noopener" class="btn-yape-white">
+              📲 Enviar Comprobante por WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Interactive WhatsApp Appointment Generator -->
   <section class="section" id="citas">
     <div class="section-header">
@@ -1044,13 +1350,13 @@
       <span class="mb-icon">🦷</span>
       <span class="mb-label">Servicios</span>
     </a>
-    <a href="#simuladores" class="mb-nav-item">
-      <span class="mb-icon">✨</span>
-      <span class="mb-label">Simulador</span>
+    <a href="#video" class="mb-nav-item">
+      <span class="mb-icon">🎬</span>
+      <span class="mb-label">Video</span>
     </a>
-    <a href="#galeria" class="mb-nav-item">
-      <span class="mb-icon">📸</span>
-      <span class="mb-label">Fotos</span>
+    <a href="#yape" class="mb-nav-item">
+      <span class="mb-icon">💜</span>
+      <span class="mb-label">Yape</span>
     </a>
     <a href="https://wa.me/51983104789?text=Hola%20Doc%20Anderson%2C%20vengo%20de%20su%20web%20y%20quiero%20agendar%20una%20cita%20%F0%9F%A6%B7" target="_blank" rel="noopener" class="mb-nav-item mb-nav-wa">
       <span class="mb-icon">💬</span>
@@ -1086,9 +1392,11 @@
       </div>
 
       <div>
-        <h4>Contacto y Redes Sociales</h4>
+        <h4>Contacto, Redes y Pagos</h4>
         <ul>
           <li><a href="https://wa.me/51983104789" target="_blank" rel="noopener">📱 WhatsApp: +51 983 104 789</a></li>
+          <li><a href="#yape">💜 Yape Oficial: 983 104 789 (Anderson Johel Pompa Castrejón)</a></li>
+          <li><a href="#video">🎬 Ver Video del Consultorio</a></li>
           <li><a href="https://www.instagram.com/anderson.johel?psln=dDF1ZGZvemx4YWNv" target="_blank" rel="noopener">📸 Instagram: @anderson.johel</a></li>
           <li><a href="https://www.tiktok.com/@andersonjohel?_r=1&_t=ZS-98qqfIxXRzw" target="_blank" rel="noopener">🎵 TikTok: @andersonjohel</a></li>
           <li><a href="#citas">📅 Reservar Cita Online</a></li>
@@ -1601,6 +1909,48 @@ if (lightboxClose && lightboxModal) {
   lightboxClose.addEventListener('click', () => lightboxModal.classList.remove('active'));
   lightboxModal.addEventListener('click', e => {
     if (e.target === lightboxModal) lightboxModal.classList.remove('active');
+  });
+}
+
+// 6b. Video Audio Toggle & Yape QR Interactive Handlers
+const clinicVideo = document.getElementById('clinicVideo');
+const toggleVideoSoundBtn = document.getElementById('toggleVideoSoundBtn');
+
+if (clinicVideo && toggleVideoSoundBtn) {
+  toggleVideoSoundBtn.addEventListener('click', () => {
+    clinicVideo.muted = !clinicVideo.muted;
+    if (!clinicVideo.muted) {
+      clinicVideo.play().catch(() => {});
+      toggleVideoSoundBtn.innerHTML = '🔇 Silenciar Audio';
+    } else {
+      toggleVideoSoundBtn.innerHTML = '🔊 Activar Audio';
+    }
+  });
+}
+
+const yapeQrBox = document.getElementById('yapeQrBox');
+if (yapeQrBox && lightboxModal && lightboxImg && lightboxTitle && lightboxWa) {
+  yapeQrBox.addEventListener('click', () => {
+    const qrImgEl = yapeQrBox.querySelector('img');
+    lightboxImg.src = qrImgEl ? qrImgEl.src : 'yape.jpg';
+    lightboxTitle.textContent = '💜 Yape Oficial: Anderson Johel Pompa Castrejón (983 104 789)';
+    const msg = 'Hola Doc Anderson 🦷, acabo de realizar un pago por *Yape* y le envío mi comprobante 💜';
+    lightboxWa.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+    lightboxModal.classList.add('active');
+  });
+}
+
+const copyYapeBtn = document.getElementById('copyYapeBtn');
+if (copyYapeBtn) {
+  copyYapeBtn.addEventListener('click', () => {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText('983104789').catch(() => {});
+    }
+    const origText = copyYapeBtn.innerHTML;
+    copyYapeBtn.innerHTML = '✅ ¡Copiado: 983 104 789!';
+    setTimeout(() => {
+      copyYapeBtn.innerHTML = origText;
+    }, 2500);
   });
 }
 
