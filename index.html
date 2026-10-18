@@ -244,6 +244,43 @@
       box-shadow: 0 10px 24px rgba(24, 119, 242, 0.5);
       filter: brightness(1.07);
     }
+    /* Vertical Mobile Video (9:16) Adaptation in Ortodoncia — Zero Cropping! */
+    .detail-img-wrap.video-mode {
+      height: auto !important;
+      min-height: 360px !important;
+      max-height: none !important;
+      background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%) !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      padding: 18px !important;
+      overflow: visible !important;
+    }
+    .detail-img-wrap.video-mode video#detailVideo {
+      width: 100% !important;
+      max-width: 285px !important;
+      height: auto !important;
+      max-height: 505px !important;
+      aspect-ratio: 9 / 16 !important;
+      object-fit: contain !important;
+      border-radius: 18px !important;
+      background: #000000 !important;
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.5) !important;
+      border: 2px solid rgba(56, 189, 248, 0.45) !important;
+      display: block !important;
+      margin: 0 auto !important;
+    }
+    @media (min-width: 820px) {
+      .explorer-detail.video-layout-desktop {
+        display: grid !important;
+        grid-template-columns: 320px 1fr !important;
+        align-items: stretch !important;
+      }
+      .explorer-detail.video-layout-desktop .detail-img-wrap.video-mode {
+        height: 100% !important;
+        border-radius: 22px 0 0 22px !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -428,7 +465,7 @@
         <button class="explorer-tab active" data-key="ortodoncia">
           <div class="tab-emoji">😁</div>
           <div class="tab-info">
-            <h4>3. Ortodoncia</h4>
+            <h4>1. Ortodoncia</h4>
             <span>Brackets y alineadores</span>
           </div>
         </button>
@@ -436,7 +473,7 @@
         <button class="explorer-tab" data-key="estetica">
           <div class="tab-emoji">✨</div>
           <div class="tab-info">
-            <h4>4. Estética Dental</h4>
+            <h4>2. Estética Dental</h4>
             <span>Blanqueamiento y carillas</span>
           </div>
         </button>
@@ -444,7 +481,7 @@
         <button class="explorer-tab" data-key="pediatria">
           <div class="tab-emoji">🧒</div>
           <div class="tab-info">
-            <h4>5. Odontopediatría</h4>
+            <h4>3. Odontopediatría</h4>
             <span>Atención dental para niños</span>
           </div>
         </button>
@@ -452,7 +489,7 @@
         <button class="explorer-tab" data-key="preventiva">
           <div class="tab-emoji">🪥</div>
           <div class="tab-info">
-            <h4>1. Preventiva</h4>
+            <h4>4. Preventiva</h4>
             <span>Limpieza, flúor y sellantes</span>
           </div>
         </button>
@@ -460,7 +497,7 @@
         <button class="explorer-tab" data-key="restauradora">
           <div class="tab-emoji">🦷</div>
           <div class="tab-info">
-            <h4>2. Restauradora</h4>
+            <h4>5. Restauradora</h4>
             <span>Curaciones con resina y caries</span>
           </div>
         </button>
@@ -499,9 +536,9 @@
       </div>
 
       <!-- Dynamic Detail Panel (Immediately visible below tabs on mobile!) -->
-      <div class="explorer-detail" id="treatmentDetail">
-        <div class="detail-img-wrap" id="video" style="position:relative; background:#0f172a;">
-          <video id="detailVideo" controls autoplay muted loop playsinline preload="metadata" poster="foto6.jpg" style="width:100%; height:100%; min-height:340px; max-height:480px; object-fit:cover; display:block;">
+      <div class="explorer-detail video-layout-desktop" id="treatmentDetail">
+        <div class="detail-img-wrap video-mode" id="video" style="position:relative;">
+          <video id="detailVideo" controls autoplay muted loop playsinline preload="metadata" poster="foto6.jpg">
             <source src="video-pompa.mp4" type="video/mp4" />
             <source src="video%20pompa.mp4" type="video/mp4" />
             <source src="assets/video-pompa.mp4" type="video/mp4" />
@@ -511,11 +548,11 @@
             🔊 Activar Audio
           </button>
           <img id="detailImg" src="foto6.jpg" alt="Ortodoncia" style="display:none;" />
-          <span class="detail-badge" id="detailBadge">Especialidad #3 ⭐ • Video Real</span>
+          <span class="detail-badge" id="detailBadge">Especialidad #1 ⭐ • Video Real</span>
         </div>
         <div class="detail-body">
           <div>
-            <h3 id="detailTitle">3. Ortodoncia</h3>
+            <h3 id="detailTitle">1. Ortodoncia</h3>
             <p id="detailDesc">
               Alineamos tus dientes y corregimos tu mordida con planes a medida, desde brackets metálicos y estéticos hasta alineadores modernos.
             </p>
@@ -554,52 +591,22 @@
     <div class="catalog-container">
       <div class="catalog-top-bar">
         <div>
-          <h3>📋 Catálogo Completo de Tratamientos</h3>
+          <h3>📋 Catálogo Completo de Tratamientos (Del 1 al 9)</h3>
           <p>Toca cualquier tratamiento específico para consultarlo o agendarlo directo por WhatsApp.</p>
         </div>
         <div class="catalog-search-box">
           <span>🔍</span>
-          <input type="text" id="serviceSearchInput" placeholder="Buscar: ej. carillas, limpieza, conductos, prótesis..." aria-label="Buscar tratamiento dental" />
+          <input type="text" id="serviceSearchInput" placeholder="Buscar: ej. brackets, carillas, limpieza, conductos..." aria-label="Buscar tratamiento dental" />
         </div>
       </div>
 
       <div class="catalog-grid" id="catalogGrid">
-        <!-- 1. Odontología preventiva -->
+        <!-- 1. Ortodoncia -->
         <div class="service-cat-card">
           <div class="scc-header">
             <span class="scc-num">01</span>
-            <span class="scc-icon">🪥</span>
-            <h4>Odontología Preventiva</h4>
-          </div>
-          <ul class="scc-list">
-            <li><button type="button" class="sub-srv-btn" data-srv="Limpieza dental y profilaxis"><span>Limpieza dental y profilaxis</span> <small>Consultar →</small></button></li>
-            <li><button type="button" class="sub-srv-btn" data-srv="Aplicación de flúor"><span>Aplicación de flúor</span> <small>Consultar →</small></button></li>
-            <li><button type="button" class="sub-srv-btn" data-srv="Sellantes dentales"><span>Sellantes dentales</span> <small>Consultar →</small></button></li>
-            <li><button type="button" class="sub-srv-btn" data-srv="Educación en higiene oral"><span>Educación en higiene oral</span> <small>Consultar →</small></button></li>
-          </ul>
-        </div>
-
-        <!-- 2. Odontología restauradora -->
-        <div class="service-cat-card">
-          <div class="scc-header">
-            <span class="scc-num">02</span>
-            <span class="scc-icon">🦷</span>
-            <h4>Odontología Restauradora</h4>
-          </div>
-          <ul class="scc-list">
-            <li><button type="button" class="sub-srv-btn" data-srv="Curaciones dentales con resina"><span>Curaciones dentales con resina</span> <small>Consultar →</small></button></li>
-            <li><button type="button" class="sub-srv-btn" data-srv="Restauraciones estéticas"><span>Restauraciones estéticas</span> <small>Consultar →</small></button></li>
-            <li><button type="button" class="sub-srv-btn" data-srv="Reconstrucción de dientes fracturados"><span>Reconstrucción de dientes fracturados</span> <small>Consultar →</small></button></li>
-            <li><button type="button" class="sub-srv-btn" data-srv="Tratamiento de caries"><span>Tratamiento de caries</span> <small>Consultar →</small></button></li>
-          </ul>
-        </div>
-
-        <!-- 3. Ortodoncia -->
-        <div class="service-cat-card">
-          <div class="scc-header">
-            <span class="scc-num">03</span>
             <span class="scc-icon">😁</span>
-            <h4>Ortodoncia</h4>
+            <h4>1. Ortodoncia</h4>
           </div>
           <ul class="scc-list">
             <li><button type="button" class="sub-srv-btn" data-srv="Instalación de brackets metálicos"><span>Instalación de brackets metálicos</span> <small>Consultar →</small></button></li>
@@ -609,12 +616,12 @@
           </ul>
         </div>
 
-        <!-- 4. Estética dental -->
+        <!-- 2. Estética dental -->
         <div class="service-cat-card">
           <div class="scc-header">
-            <span class="scc-num">04</span>
+            <span class="scc-num">02</span>
             <span class="scc-icon">✨</span>
-            <h4>Estética Dental</h4>
+            <h4>2. Estética Dental</h4>
           </div>
           <ul class="scc-list">
             <li><button type="button" class="sub-srv-btn" data-srv="Blanqueamiento dental"><span>Blanqueamiento dental</span> <small>Consultar →</small></button></li>
@@ -624,12 +631,12 @@
           </ul>
         </div>
 
-        <!-- 5. Odontología pediátrica -->
+        <!-- 3. Odontología pediátrica -->
         <div class="service-cat-card">
           <div class="scc-header">
-            <span class="scc-num">05</span>
+            <span class="scc-num">03</span>
             <span class="scc-icon">🧒</span>
-            <h4>Odontología Pediátrica</h4>
+            <h4>3. Odontología Pediátrica</h4>
           </div>
           <ul class="scc-list">
             <li><button type="button" class="sub-srv-btn" data-srv="Atención dental para niños"><span>Atención dental para niños</span> <small>Consultar →</small></button></li>
@@ -639,12 +646,42 @@
           </ul>
         </div>
 
+        <!-- 4. Odontología preventiva -->
+        <div class="service-cat-card">
+          <div class="scc-header">
+            <span class="scc-num">04</span>
+            <span class="scc-icon">🪥</span>
+            <h4>4. Odontología Preventiva</h4>
+          </div>
+          <ul class="scc-list">
+            <li><button type="button" class="sub-srv-btn" data-srv="Limpieza dental y profilaxis"><span>Limpieza dental y profilaxis</span> <small>Consultar →</small></button></li>
+            <li><button type="button" class="sub-srv-btn" data-srv="Aplicación de flúor"><span>Aplicación de flúor</span> <small>Consultar →</small></button></li>
+            <li><button type="button" class="sub-srv-btn" data-srv="Sellantes dentales"><span>Sellantes dentales</span> <small>Consultar →</small></button></li>
+            <li><button type="button" class="sub-srv-btn" data-srv="Educación en higiene oral"><span>Educación en higiene oral</span> <small>Consultar →</small></button></li>
+          </ul>
+        </div>
+
+        <!-- 5. Odontología restauradora -->
+        <div class="service-cat-card">
+          <div class="scc-header">
+            <span class="scc-num">05</span>
+            <span class="scc-icon">🦷</span>
+            <h4>5. Odontología Restauradora</h4>
+          </div>
+          <ul class="scc-list">
+            <li><button type="button" class="sub-srv-btn" data-srv="Curaciones dentales con resina"><span>Curaciones dentales con resina</span> <small>Consultar →</small></button></li>
+            <li><button type="button" class="sub-srv-btn" data-srv="Restauraciones estéticas"><span>Restauraciones estéticas</span> <small>Consultar →</small></button></li>
+            <li><button type="button" class="sub-srv-btn" data-srv="Reconstrucción de dientes fracturados"><span>Reconstrucción de dientes fracturados</span> <small>Consultar →</small></button></li>
+            <li><button type="button" class="sub-srv-btn" data-srv="Tratamiento de caries"><span>Tratamiento de caries</span> <small>Consultar →</small></button></li>
+          </ul>
+        </div>
+
         <!-- 6. Endodoncia -->
         <div class="service-cat-card">
           <div class="scc-header">
             <span class="scc-num">06</span>
             <span class="scc-icon">🔬</span>
-            <h4>Endodoncia</h4>
+            <h4>6. Endodoncia</h4>
           </div>
           <ul class="scc-list">
             <li><button type="button" class="sub-srv-btn" data-srv="Tratamiento de conductos"><span>Tratamiento de conductos</span> <small>Consultar →</small></button></li>
@@ -658,7 +695,7 @@
           <div class="scc-header">
             <span class="scc-num">07</span>
             <span class="scc-icon">🩺</span>
-            <h4>Cirugía Oral</h4>
+            <h4>7. Cirugía Oral</h4>
           </div>
           <ul class="scc-list">
             <li><button type="button" class="sub-srv-btn" data-srv="Extracciones simples"><span>Extracciones simples</span> <small>Consultar →</small></button></li>
@@ -673,7 +710,7 @@
           <div class="scc-header">
             <span class="scc-num">08</span>
             <span class="scc-icon">👑</span>
-            <h4>Rehabilitación Oral</h4>
+            <h4>8. Rehabilitación Oral</h4>
           </div>
           <ul class="scc-list">
             <li><button type="button" class="sub-srv-btn" data-srv="Coronas dentales"><span>Coronas dentales</span> <small>Consultar →</small></button></li>
@@ -688,7 +725,7 @@
           <div class="scc-header">
             <span class="scc-num">09</span>
             <span class="scc-icon">🌿</span>
-            <h4>Periodoncia</h4>
+            <h4>9. Periodoncia</h4>
           </div>
           <ul class="scc-list">
             <li><button type="button" class="sub-srv-btn" data-srv="Tratamiento de gingivitis"><span>Tratamiento de gingivitis</span> <small>Consultar →</small></button></li>
