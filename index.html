@@ -500,9 +500,18 @@
 
       <!-- Dynamic Detail Panel (Immediately visible below tabs on mobile!) -->
       <div class="explorer-detail" id="treatmentDetail">
-        <div class="detail-img-wrap">
-          <img id="detailImg" src="foto6.jpg" alt="Ortodoncia" />
-          <span class="detail-badge" id="detailBadge">Especialidad #3 ⭐</span>
+        <div class="detail-img-wrap" id="video" style="position:relative; background:#0f172a;">
+          <video id="detailVideo" controls autoplay muted loop playsinline preload="metadata" poster="foto6.jpg" style="width:100%; height:100%; min-height:340px; max-height:480px; object-fit:cover; display:block;">
+            <source src="video-pompa.mp4" type="video/mp4" />
+            <source src="video%20pompa.mp4" type="video/mp4" />
+            <source src="assets/video-pompa.mp4" type="video/mp4" />
+            Tu navegador no soporta reproducción de video.
+          </video>
+          <button type="button" class="video-sound-btn" id="toggleVideoSoundBtn">
+            🔊 Activar Audio
+          </button>
+          <img id="detailImg" src="foto6.jpg" alt="Ortodoncia" style="display:none;" />
+          <span class="detail-badge" id="detailBadge">Especialidad #3 ⭐ • Video Real</span>
         </div>
         <div class="detail-body">
           <div>
@@ -880,50 +889,6 @@
           </a>
           <a href="https://www.tiktok.com/@andersonjohel?_r=1&_t=ZS-98qqfIxXRzw" target="_blank" rel="noopener" class="btn btn-outline" style="padding:8px 14px; font-size:0.8rem;">
             🎵 TikTok
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Video en Consultorio Showcase -->
-  <section class="section" id="video">
-    <div class="section-header">
-      <span class="section-tag">Experiencia Real en Consultorio</span>
-      <h2>Conoce Nuestro Consultorio en Video 🎬</h2>
-      <p>Mira cómo trabajamos en <strong>Doc Anderson — Odontología Integral</strong> con tecnología moderna, bioseguridad y un trato cálido 100% libre de dolor.</p>
-    </div>
-
-    <div class="video-reel-card" style="max-width:860px; margin:0 auto;">
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:28px; align-items:center;">
-        <div class="video-player-frame" style="margin:0 auto;">
-          <video id="clinicVideo" controls autoplay muted loop playsinline preload="metadata" poster="foto5.jpg">
-            <source src="video-pompa.mp4" type="video/mp4" />
-            <source src="video%20pompa.mp4" type="video/mp4" />
-            <source src="assets/video-pompa.mp4" type="video/mp4" />
-            Tu navegador no soporta reproducción de video.
-          </video>
-          <button type="button" class="video-sound-btn" id="toggleVideoSoundBtn">
-            🔊 Activar Audio
-          </button>
-        </div>
-
-        <div style="display:flex; flex-direction:column; gap:14px;">
-          <div class="video-reel-header" style="margin-bottom:4px;">
-            <span class="video-badge-live">🎬 VIDEO EN CONSULTORIO</span>
-            <span style="font-size:0.85rem; color:#38bdf8; font-weight:700;">Dr. Anderson Johel</span>
-          </div>
-          <h3 style="font-size:1.5rem; color:#ffffff; line-height:1.25;">Tu Sonrisa en Manos de Especialistas</h3>
-          <p style="font-size:0.95rem; color:#cbd5e1; line-height:1.6;">
-            En <strong>Doc Anderson — Odontología Integral</strong> cuidamos cada detalle para que niños, jóvenes y adultos se sientan cómodos, seguros y felices desde el primer minuto.
-          </p>
-          <ul style="list-style:none; padding:0; margin:4px 0 10px; display:flex; flex-direction:column; gap:8px; font-size:0.9rem; color:#e2e8f0;">
-            <li>✅ <strong>Paso 1:</strong> Agenda tu cita abajo por WhatsApp en 30 segundos.</li>
-            <li>✅ <strong>Paso 2:</strong> Recibe tu evaluación personalizada y plan dental.</li>
-            <li>✅ <strong>Paso 3:</strong> Paga fácilmente en consultorio o por <strong>Yape</strong> una vez confirmada tu cita.</li>
-          </ul>
-          <a href="#citas" class="btn btn-whatsapp" style="width:100%; justify-content:center; padding:14px;">
-            <span>📅 Paso 1: Ir a Agendar mi Cita Ahora ↓</span>
           </a>
         </div>
       </div>
@@ -1717,6 +1682,8 @@ const TREATMENTS = {
 const tabButtons = document.querySelectorAll('.explorer-tab');
 const treatmentDetail = document.getElementById('treatmentDetail');
 const detailImg = document.getElementById('detailImg');
+const detailVideo = document.getElementById('detailVideo');
+const toggleVideoSoundBtn = document.getElementById('toggleVideoSoundBtn');
 const detailBadge = document.getElementById('detailBadge');
 const detailTitle = document.getElementById('detailTitle');
 const detailDesc = document.getElementById('detailDesc');
@@ -1741,9 +1708,28 @@ tabButtons.forEach(btn => {
     }
 
     setTimeout(() => {
-      detailImg.src = data.img;
-      detailImg.alt = data.title;
-      detailBadge.textContent = data.badge;
+      if (key === 'ortodoncia') {
+        if (detailImg) detailImg.style.display = 'none';
+        if (detailVideo) {
+          detailVideo.style.display = 'block';
+          detailVideo.play().catch(() => {});
+        }
+        if (toggleVideoSoundBtn) toggleVideoSoundBtn.style.display = 'inline-flex';
+        detailBadge.textContent = 'Especialidad #3 ⭐ • Video Real';
+      } else {
+        if (detailVideo) {
+          detailVideo.pause();
+          detailVideo.style.display = 'none';
+        }
+        if (toggleVideoSoundBtn) toggleVideoSoundBtn.style.display = 'none';
+        if (detailImg) {
+          detailImg.style.display = 'block';
+          detailImg.src = data.img;
+          detailImg.alt = data.title;
+        }
+        detailBadge.textContent = data.badge;
+      }
+
       detailTitle.textContent = data.title;
       detailDesc.textContent = data.desc;
       detailTime.textContent = data.time;
@@ -1949,14 +1935,11 @@ if (lightboxClose && lightboxModal) {
 }
 
 // 6b. Video Audio Toggle & Yape QR Interactive Handlers
-const clinicVideo = document.getElementById('clinicVideo');
-const toggleVideoSoundBtn = document.getElementById('toggleVideoSoundBtn');
-
-if (clinicVideo && toggleVideoSoundBtn) {
+if (detailVideo && toggleVideoSoundBtn) {
   toggleVideoSoundBtn.addEventListener('click', () => {
-    clinicVideo.muted = !clinicVideo.muted;
-    if (!clinicVideo.muted) {
-      clinicVideo.play().catch(() => {});
+    detailVideo.muted = !detailVideo.muted;
+    if (!detailVideo.muted) {
+      detailVideo.play().catch(() => {});
       toggleVideoSoundBtn.innerHTML = '🔇 Silenciar Audio';
     } else {
       toggleVideoSoundBtn.innerHTML = '🔊 Activar Audio';
