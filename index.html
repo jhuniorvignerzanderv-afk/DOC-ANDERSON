@@ -231,6 +231,19 @@
         grid-template-columns: 1fr;
       }
     }
+    .btn-facebook {
+      background: linear-gradient(135deg, #1877F2 0%, #0d5bd9 100%);
+      color: #ffffff !important;
+      font-weight: 800;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 0 6px 18px rgba(24, 119, 242, 0.35);
+      transition: all 0.25s ease;
+    }
+    .btn-facebook:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(24, 119, 242, 0.5);
+      filter: brightness(1.07);
+    }
   </style>
 </head>
 <body>
@@ -253,16 +266,16 @@
 
       <ul class="nav-links" id="navLinks">
         <li><a href="#especialidades">Especialidades</a></li>
-        <li><a href="#simuladores">Simulador 3D</a></li>
-        <li><a href="#video">🎬 Video</a></li>
-        <li><a href="#yape">💜 Yape</a></li>
         <li><a href="#galeria">Casos Reales</a></li>
-        <li><a href="#citas">Agendar Cita</a></li>
+        <li><a href="#video">🎬 Video</a></li>
+        <li><a href="#citas">📅 Agendar Cita</a></li>
+        <li><a href="#yape">💜 Pago Yape</a></li>
+        <li><a href="#simuladores">✨ Simulador 3D</a></li>
       </ul>
 
       <div class="nav-actions">
-        <a href="#yape" class="btn btn-yape nav-btn-compact" title="Pagar o reservar con Yape">
-          <span>💜 Yape</span>
+        <a href="https://www.facebook.com/share/1LWpPGCaYX/" target="_blank" rel="noopener" class="btn btn-facebook nav-btn-compact" title="Síguenos en Facebook">
+          <span>📘 Facebook</span>
         </a>
         <a href="https://www.instagram.com/anderson.johel?psln=dDF1ZGZvemx4YWNv" target="_blank" rel="noopener" class="btn btn-instagram nav-btn-compact" title="Síguenos en Instagram @anderson.johel">
           <span>📸 Instagram</span>
@@ -272,6 +285,9 @@
         </a>
         <a href="https://wa.me/51983104789?text=Hola%20Doc%20Anderson%2C%20quisiera%20agendar%20una%20cita%20odontol%C3%B3gica%20por%20favor%20%F0%9F%A6%B7" target="_blank" rel="noopener" class="btn btn-whatsapp nav-btn-compact">
           <span>💬 Cita</span>
+        </a>
+        <a href="#yape" class="btn btn-yape nav-btn-compact" title="Pagar con Yape después de agendar">
+          <span>💜 Yape</span>
         </a>
       </div>
     </div>
@@ -676,7 +692,483 @@
     </div>
   </section>
 
-  <!-- Dual Interactive Simulators: With Mobile Switch Tabs so it fits 1 screen on phones! -->
+  <!-- Pediatric Dentistry Spotlight (Using foto1.jpg and foto2.jpg) -->
+  <section class="section" id="pediatria">
+    <div class="pediatric-showcase">
+      <div class="pediatric-photos">
+        <div class="ped-photo-card">
+          <img src="foto1.jpg" alt="Odontología Pediátrica Niña - Dr. Anderson Johel" />
+        </div>
+        <div class="ped-photo-card">
+          <img src="foto2.jpg" alt="Odontología Pediátrica Niño Capitán América - Dr. Anderson Johel" />
+        </div>
+      </div>
+
+      <div class="pediatric-content">
+        <span class="section-tag">Especialistas en Niños 🦸‍♂️🧚‍♀️</span>
+        <h2>Odontología Pediátrica: ¡Visitas divertidas y Cero Miedo!</h2>
+        <p>
+          El <strong>Dr. Anderson Johel</strong> transforma cada consulta en una aventura de superhéroes con paciencia infinita, gorritos temáticos y técnicas indoloras para que tus hijos amen ir al dentista.
+        </p>
+
+        <div class="ped-features">
+          <div class="ped-feat">🛡️ Flúor y Sellantes</div>
+          <div class="ped-feat">🦷 Curaciones sin dolor</div>
+          <div class="ped-feat">🦸‍♂️ Ambiente divertido</div>
+          <div class="ped-feat">💛 Paciencia y cariño</div>
+        </div>
+
+        <a href="https://wa.me/51983104789?text=Hola%20Dr.%20Anderson%20Johel%2C%20quisiera%20agendar%20una%20consulta%20de%20*Odontolog%C3%ADa%20Pedi%C3%A1trica*%20para%20mi%20peque%C3%B1o(a)%20%F0%9F%A7%92%F0%9F%A6%B7" target="_blank" rel="noopener" class="btn btn-whatsapp" style="width:100%;">
+          <span>🧒 Agendar Cita Pediátrica por WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Complete Real Photo Gallery (Swipeable on Mobile + Filterable) -->
+  <section class="section" id="galeria">
+    <div class="section-header">
+      <span class="section-tag">Galería Clínica Real</span>
+      <h2>Conoce nuestro Trabajo Real</h2>
+      <p>Desliza o toca cualquier foto para ampliarla y consultar por ese tratamiento.</p>
+    </div>
+
+    <div class="gallery-filters" id="galleryFilters">
+      <button class="filter-btn active" data-filter="all">Todos (6)</button>
+      <button class="filter-btn" data-filter="ortodoncia">😁 Brackets</button>
+      <button class="filter-btn" data-filter="estetica">✨ Aclaramiento</button>
+      <button class="filter-btn" data-filter="pediatria">🧒 Niños</button>
+      <button class="filter-btn" data-filter="cirugia">🩺 Cirugía</button>
+      <button class="filter-btn" data-filter="doctor">👨‍⚕️ Dr. Anderson</button>
+    </div>
+
+    <div class="gallery-grid" id="galleryGrid">
+      <div class="gallery-item" data-category="ortodoncia">
+        <div class="gallery-img-box" data-img="foto6.jpg" data-title="Instalación de Brackets">
+          <img src="foto6.jpg" alt="Instalación de Brackets - Dr. Anderson Johel" loading="lazy" />
+          <div class="gallery-zoom-hint">🔍 Toca para ampliar</div>
+        </div>
+        <div class="gallery-caption">
+          <div>
+            <h4>Instalación de Brackets</h4>
+            <span>Ortodoncia correctiva y estética</span>
+          </div>
+          <a class="gallery-wa-mini" href="https://wa.me/51983104789?text=Hola%20Dr.%20Anderson%20Johel%2C%20deseo%20informaci%C3%B3n%20sobre%20*Instalaci%C3%B3n%20de%20Brackets*%20%F0%9F%A6%B7" target="_blank" rel="noopener" title="Consultar por WhatsApp">💬</a>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="estetica">
+        <div class="gallery-img-box" data-img="foto3.jpg" data-title="Aclaramiento Dental LED">
+          <img src="foto3.jpg" alt="Aclaramiento Dental LED - Dr. Anderson Johel" loading="lazy" />
+          <div class="gallery-zoom-hint">🔍 Toca para ampliar</div>
+        </div>
+        <div class="gallery-caption">
+          <div>
+            <h4>Aclaramiento Dental LED</h4>
+            <span>Sonrisa más blanca y brillante</span>
+          </div>
+          <a class="gallery-wa-mini" href="https://wa.me/51983104789?text=Hola%20Dr.%20Anderson%20Johel%2C%20deseo%20informaci%C3%B3n%20sobre%20*Aclaramiento%20Dental%20LED*%20%E2%9C%A8" target="_blank" rel="noopener" title="Consultar por WhatsApp">💬</a>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="cirugia">
+        <div class="gallery-img-box" data-img="foto4.jpg" data-title="Cirugía Oral Especializada">
+          <img src="foto4.jpg" alt="Cirugía Oral - Dr. Anderson Johel" loading="lazy" />
+          <div class="gallery-zoom-hint">🔍 Toca para ampliar</div>
+        </div>
+        <div class="gallery-caption">
+          <div>
+            <h4>Cirugía Oral</h4>
+            <span>Procedimientos seguros y sin dolor</span>
+          </div>
+          <a class="gallery-wa-mini" href="https://wa.me/51983104789?text=Hola%20Dr.%20Anderson%20Johel%2C%20deseo%20informaci%C3%B3n%20sobre%20*Cirug%C3%ADa%20Oral*%20%F0%9F%A9%BA" target="_blank" rel="noopener" title="Consultar por WhatsApp">💬</a>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="pediatria">
+        <div class="gallery-img-box" data-img="foto1.jpg" data-title="Odontología Pediátrica">
+          <img src="foto1.jpg" alt="Odontología Pediátrica - Dr. Anderson Johel" loading="lazy" />
+          <div class="gallery-zoom-hint">🔍 Toca para ampliar</div>
+        </div>
+        <div class="gallery-caption">
+          <div>
+            <h4>Odontología Pediátrica</h4>
+            <span>Cuidado preventivo para niños</span>
+          </div>
+          <a class="gallery-wa-mini" href="https://wa.me/51983104789?text=Hola%20Dr.%20Anderson%20Johel%2C%20deseo%20agendar%20una%20cita%20de%20*Odontolog%C3%ADa%20Pedi%C3%A1trica*%20%F0%9F%A7%92" target="_blank" rel="noopener" title="Consultar por WhatsApp">💬</a>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="pediatria">
+        <div class="gallery-img-box" data-img="foto2.jpg" data-title="Atención Infantil sin Miedo">
+          <img src="foto2.jpg" alt="Odontología Pediátrica Niño - Dr. Anderson Johel" loading="lazy" />
+          <div class="gallery-zoom-hint">🔍 Toca para ampliar</div>
+        </div>
+        <div class="gallery-caption">
+          <div>
+            <h4>Atención Infantil Amigable</h4>
+            <span>Paciencia y calidez en cada cita</span>
+          </div>
+          <a class="gallery-wa-mini" href="https://wa.me/51983104789?text=Hola%20Dr.%20Anderson%20Johel%2C%20deseo%20informaci%C3%B3n%20para%20la%20atenci%C3%B3n%20dental%20de%20mi%20hijo(a)%20%F0%9F%A6%B8%E2%80%8D%E2%99%82%EF%B8%8F" target="_blank" rel="noopener" title="Consultar por WhatsApp">💬</a>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="doctor">
+        <div class="gallery-img-box" data-img="foto5.jpg" data-title="Dr. Anderson Johel - Cirujano Dentista">
+          <img src="foto5.jpg" alt="Dr. Anderson Johel" loading="lazy" />
+          <div class="gallery-zoom-hint">🔍 Toca para ampliar</div>
+        </div>
+        <div class="gallery-caption">
+          <div>
+            <h4>Dr. Anderson Johel</h4>
+            <span>Tu odontólogo de confianza</span>
+          </div>
+          <a class="gallery-wa-mini" href="https://wa.me/51983104789?text=Hola%20Dr.%20Anderson%20Johel%2C%20quiero%20reservar%20una%20consulta%20con%20usted%20%F0%9F%A6%B7" target="_blank" rel="noopener" title="Consultar por WhatsApp">💬</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Facebook, Instagram & TikTok Social Banner -->
+  <section class="section">
+    <div class="tiktok-banner">
+      <div class="tiktok-glow-1"></div>
+      <div class="tiktok-glow-2"></div>
+
+      <div class="tiktok-info">
+        <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px;">
+          <div class="tiktok-handle-pill" style="margin-bottom:0; border-color:rgba(24, 119, 242, 0.65);">
+            <span>📘 Facebook</span>
+            <strong style="color:#60a5fa;">Doc Anderson</strong>
+          </div>
+          <div class="tiktok-handle-pill" style="margin-bottom:0; border-color:rgba(225, 48, 108, 0.55);">
+            <span>📸 Instagram</span>
+            <strong style="color:#f472b6;">@anderson.johel</strong>
+          </div>
+          <div class="tiktok-handle-pill" style="margin-bottom:0;">
+            <span>🎵 TikTok</span>
+            <strong style="color:#25f4ee;">@andersonjohel</strong>
+          </div>
+        </div>
+        <h2>¡Síguenos en Facebook, Instagram y TikTok para ver casos reales!</h2>
+        <p>
+          Sigue a <strong>Doc Anderson</strong> en <strong>Facebook</strong>, <strong>Instagram (@anderson.johel)</strong> y <strong>TikTok (@andersonjohel)</strong> para ver antes y después, instalación de brackets, blanqueamiento dental y tips para cuidar tu sonrisa.
+        </p>
+        <div style="display:flex; flex-wrap:wrap; gap:12px;">
+          <a href="https://www.facebook.com/share/1LWpPGCaYX/" target="_blank" rel="noopener" class="btn btn-facebook" style="font-weight:800;">
+            <span>📘 Seguir en Facebook</span>
+          </a>
+          <a href="https://www.instagram.com/anderson.johel?psln=dDF1ZGZvemx4YWNv" target="_blank" rel="noopener" class="btn btn-instagram" style="font-weight:800;">
+            <span>📸 Seguir en Instagram @anderson.johel</span>
+          </a>
+          <a href="https://www.tiktok.com/@andersonjohel?_r=1&_t=ZS-98qqfIxXRzw" target="_blank" rel="noopener" class="btn btn-tiktok" style="background: linear-gradient(90deg, #fe2c55, #25f4ee); color:#0f172a; font-weight:800;">
+            <span>🎵 Ver TikTok @andersonjohel</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="tiktok-cta-box">
+        <img src="foto5.jpg" alt="Doc Anderson Redes Sociales" class="tiktok-avatar" />
+        <strong>Doc Anderson</strong>
+        <span style="font-size:0.82rem; color:#94a3b8;">Facebook • @anderson.johel • @andersonjohel</span>
+        <div style="display:flex; gap:8px; flex-wrap:wrap; justify-content:center;">
+          <a href="https://www.facebook.com/share/1LWpPGCaYX/" target="_blank" rel="noopener" class="btn btn-facebook" style="padding:8px 14px; font-size:0.8rem;">
+            📘 Facebook
+          </a>
+          <a href="https://www.instagram.com/anderson.johel?psln=dDF1ZGZvemx4YWNv" target="_blank" rel="noopener" class="btn btn-instagram" style="padding:8px 14px; font-size:0.8rem;">
+            📸 Instagram
+          </a>
+          <a href="https://www.tiktok.com/@andersonjohel?_r=1&_t=ZS-98qqfIxXRzw" target="_blank" rel="noopener" class="btn btn-outline" style="padding:8px 14px; font-size:0.8rem;">
+            🎵 TikTok
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video en Consultorio Showcase -->
+  <section class="section" id="video">
+    <div class="section-header">
+      <span class="section-tag">Experiencia Real en Consultorio</span>
+      <h2>Conoce Nuestro Consultorio en Video 🎬</h2>
+      <p>Mira cómo trabajamos en <strong>Doc Anderson — Odontología Integral</strong> con tecnología moderna, bioseguridad y un trato cálido 100% libre de dolor.</p>
+    </div>
+
+    <div class="video-reel-card" style="max-width:860px; margin:0 auto;">
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:28px; align-items:center;">
+        <div class="video-player-frame" style="margin:0 auto;">
+          <video id="clinicVideo" controls autoplay muted loop playsinline preload="metadata" poster="foto5.jpg">
+            <source src="video-pompa.mp4" type="video/mp4" />
+            <source src="video%20pompa.mp4" type="video/mp4" />
+            <source src="assets/video-pompa.mp4" type="video/mp4" />
+            Tu navegador no soporta reproducción de video.
+          </video>
+          <button type="button" class="video-sound-btn" id="toggleVideoSoundBtn">
+            🔊 Activar Audio
+          </button>
+        </div>
+
+        <div style="display:flex; flex-direction:column; gap:14px;">
+          <div class="video-reel-header" style="margin-bottom:4px;">
+            <span class="video-badge-live">🎬 VIDEO EN CONSULTORIO</span>
+            <span style="font-size:0.85rem; color:#38bdf8; font-weight:700;">Dr. Anderson Johel</span>
+          </div>
+          <h3 style="font-size:1.5rem; color:#ffffff; line-height:1.25;">Tu Sonrisa en Manos de Especialistas</h3>
+          <p style="font-size:0.95rem; color:#cbd5e1; line-height:1.6;">
+            En <strong>Doc Anderson — Odontología Integral</strong> cuidamos cada detalle para que niños, jóvenes y adultos se sientan cómodos, seguros y felices desde el primer minuto.
+          </p>
+          <ul style="list-style:none; padding:0; margin:4px 0 10px; display:flex; flex-direction:column; gap:8px; font-size:0.9rem; color:#e2e8f0;">
+            <li>✅ <strong>Paso 1:</strong> Agenda tu cita abajo por WhatsApp en 30 segundos.</li>
+            <li>✅ <strong>Paso 2:</strong> Recibe tu evaluación personalizada y plan dental.</li>
+            <li>✅ <strong>Paso 3:</strong> Paga fácilmente en consultorio o por <strong>Yape</strong> una vez confirmada tu cita.</li>
+          </ul>
+          <a href="#citas" class="btn btn-whatsapp" style="width:100%; justify-content:center; padding:14px;">
+            <span>📅 Paso 1: Ir a Agendar mi Cita Ahora ↓</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PASO 1: Interactive WhatsApp Appointment Generator -->
+  <section class="section" id="citas">
+    <div class="section-header">
+      <span class="section-tag">Paso 1 • Reserva Primero tu Cita</span>
+      <h2>Agenda tu Cita en 30 Segundos 📅</h2>
+      <p>Primero elige tu tratamiento y turno para confirmar tu horario por WhatsApp con el Dr. Anderson Johel.</p>
+    </div>
+
+    <div class="booking-grid">
+      <form class="booking-form" id="bookingForm" onsubmit="return false;">
+        <h3>Datos de tu Reserva 🦷</h3>
+        <p>Atención directa al WhatsApp <strong>+51 983 104 789</strong>.</p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="patientName">Tu Nombre *</label>
+            <input type="text" id="patientName" class="form-control" placeholder="Ej. María Gómez" required />
+          </div>
+
+          <div class="form-group">
+            <label for="patientWho">¿Para quién es la cita?</label>
+            <select id="patientWho" class="form-control">
+              <option value="Para mí (Adulto/Joven)">Para mí (Adulto / Joven)</option>
+              <option value="Para mi hijo/a (Odontopediatría)">Para mi hijo/a (Niño/a)</option>
+              <option value="Para un familiar">Para un familiar</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="patientService">Tratamiento de Interés</label>
+            <select id="patientService" class="form-control">
+              <optgroup label="1. Odontología Preventiva">
+                <option value="Limpieza dental y profilaxis">🪥 Limpieza dental y profilaxis</option>
+                <option value="Aplicación de flúor">🪥 Aplicación de flúor</option>
+                <option value="Sellantes dentales">🪥 Sellantes dentales</option>
+                <option value="Educación en higiene oral">🪥 Educación en higiene oral</option>
+              </optgroup>
+              <optgroup label="2. Odontología Restauradora">
+                <option value="Curaciones dentales con resina">🦷 Curaciones dentales con resina</option>
+                <option value="Restauraciones estéticas">🦷 Restauraciones estéticas</option>
+                <option value="Reconstrucción de dientes fracturados">🦷 Reconstrucción de dientes fracturados</option>
+                <option value="Tratamiento de caries">🦷 Tratamiento de caries</option>
+              </optgroup>
+              <optgroup label="3. Ortodoncia">
+                <option value="Instalación de brackets metálicos" selected>😁 Instalación de brackets metálicos</option>
+                <option value="Brackets estéticos">😁 Brackets estéticos</option>
+                <option value="Ortodoncia con alineadores">😁 Ortodoncia con alineadores</option>
+                <option value="Controles y mantenimiento de ortodoncia">😁 Controles y mantenimiento de ortodoncia</option>
+              </optgroup>
+              <optgroup label="4. Estética Dental">
+                <option value="Blanqueamiento dental">✨ Blanqueamiento dental</option>
+                <option value="Carillas dentales">✨ Carillas dentales</option>
+                <option value="Diseño de sonrisa">✨ Diseño de sonrisa</option>
+                <option value="Cierre de espacios con resina">✨ Cierre de espacios con resina</option>
+              </optgroup>
+              <optgroup label="5. Odontología Pediátrica">
+                <option value="Atención dental para niños">🧒 Atención dental para niños</option>
+                <option value="Tratamiento de caries infantil">🧒 Tratamiento de caries infantil</option>
+                <option value="Pulpectomías y pulpotomías">🧒 Pulpectomías y pulpotomías</option>
+                <option value="Sellantes y aplicación de flúor infantil">🧒 Sellantes y aplicación de flúor</option>
+              </optgroup>
+              <optgroup label="6. Endodoncia">
+                <option value="Tratamiento de conductos">🔬 Tratamiento de conductos</option>
+                <option value="Tratamiento de infecciones pulpares">🔬 Tratamiento de infecciones pulpares</option>
+                <option value="Retratamiento de conductos">🔬 Retratamiento de conductos</option>
+              </optgroup>
+              <optgroup label="7. Cirugía Oral">
+                <option value="Extracciones simples">🩺 Extracciones simples</option>
+                <option value="Extracciones complejas">🩺 Extracciones complejas</option>
+                <option value="Extracción de terceras molares">🩺 Extracción de terceras molares</option>
+                <option value="Cirugía de dientes retenidos">🩺 Cirugía de dientes retenidos</option>
+              </optgroup>
+              <optgroup label="8. Rehabilitación Oral">
+                <option value="Coronas dentales">👑 Coronas dentales</option>
+                <option value="Prótesis fijas y removibles">👑 Prótesis fijas y removibles</option>
+                <option value="Prótesis sobre implantes">👑 Prótesis sobre implantes</option>
+                <option value="Rehabilitación de dientes desgastados o ausentes">👑 Rehabilitación de dientes desgastados o ausentes</option>
+              </optgroup>
+              <optgroup label="9. Periodoncia">
+                <option value="Tratamiento de gingivitis">🌿 Tratamiento de gingivitis</option>
+                <option value="Tratamiento de periodontitis">🌿 Tratamiento de periodontitis</option>
+                <option value="Raspado y alisado radicular">🌿 Raspado y alisado radicular</option>
+                <option value="Mantenimiento periodontal">🌿 Mantenimiento periodontal</option>
+              </optgroup>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="patientDay">Día Preferido</label>
+            <select id="patientDay" class="form-control">
+              <option value="Lo antes posible (Hoy / Mañana)">⚡ Lo antes posible (Hoy / Mañana)</option>
+              <option value="Lunes a Viernes">📅 Entre Lunes y Viernes</option>
+              <option value="Fin de Semana (Sábado)">🌟 Fin de Semana (Sábado)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Turno de Preferencia</label>
+          <div class="shift-pills" id="shiftPills">
+            <button type="button" class="shift-pill active" data-shift="Mañana (9am - 1pm)">☀️ Mañana</button>
+            <button type="button" class="shift-pill" data-shift="Tarde (3pm - 6pm)">🌤️ Tarde</button>
+            <button type="button" class="shift-pill" data-shift="Noche (6pm - 8pm)">🌙 Noche</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="patientNotes">Consulta adicional (Opcional)</label>
+          <input type="text" id="patientNotes" class="form-control" placeholder="Ej. Quisiera saber costos o tengo dolor..." />
+        </div>
+
+        <button type="button" id="sendWaBookingBtn" class="btn btn-whatsapp" style="width:100%; padding:16px; font-size:1.05rem;">
+          <span>📲 Enviar Reserva de Cita por WhatsApp</span>
+        </button>
+      </form>
+
+      <!-- Live WhatsApp Message Preview -->
+      <div class="wa-preview-panel">
+        <div class="wa-header">
+          <img src="foto5.jpg" alt="Dr. Anderson Johel" />
+          <div class="wa-header-info">
+            <strong>Doc Anderson 🦷</strong>
+            <span>En línea • WhatsApp (+51 983 104 789)</span>
+          </div>
+        </div>
+
+        <div class="wa-chat-body">
+          <div class="wa-bubble-in">
+            ¡Hola! 👋 Soy <strong>Doc Anderson</strong>. Primero agenda tu cita aquí y, una vez confirmado tu horario o tratamiento, puedes usar <strong>Yape</strong> más abajo.
+          </div>
+
+          <div class="wa-bubble-out" id="waLivePreview">Hola Doc Anderson 🦷, quiero agendar una cita:
+
+👤 *Nombre:* Paciente
+🎯 *Paciente:* Para mí (Adulto/Joven)
+✨ *Tratamiento:* Instalación de brackets metálicos
+📅 *Día:* Lo antes posible (Hoy / Mañana)
+⏰ *Turno:* Mañana (9am - 1pm)
+
+¿Me confirma horarios disponibles por favor?</div>
+        </div>
+
+        <div class="wa-footer-note">
+          🔒 Vista previa automática de tu mensaje de WhatsApp.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PASO 2: Pagos con Yape (DESPUÉS de haber agendado la cita) -->
+  <section class="section" id="yape">
+    <div class="section-header">
+      <span class="section-tag">Paso 2 • Pago Fácil Después de Agendar</span>
+      <h2>¿Ya Agendaste tu Cita? Paga Fácil con Yape 💜</h2>
+      <p>Una vez que hayas coordinado tu cita o tratamiento con el <strong>Dr. Anderson Johel</strong>, puedes realizar tu pago de forma rápida y segura escaneando nuestro código QR oficial de <strong>Yape</strong>.</p>
+    </div>
+
+    <div class="yape-card" style="max-width:780px; margin:0 auto;">
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:26px; align-items:center;">
+        <div class="yape-qr-wrapper" id="yapeQrBox" title="Toca para ampliar el QR de Yape" style="margin:0 auto;">
+          <img src="yape.jpg" onerror="this.onerror=null;this.src='YAPE.jpeg';" alt="Código QR Oficial de Yape - Anderson Johel Pompa Castrejón" />
+          <div style="margin-top:8px; font-size:0.8rem; font-weight:800; color:#742284;">
+            🔍 Toca el QR para verlo en pantalla completa
+          </div>
+        </div>
+
+        <div>
+          <div class="video-reel-header" style="margin-bottom:10px;">
+            <span class="yape-top-pill">💜 YAPE OFICIAL VERIFICADO</span>
+          </div>
+          <h3 style="font-size:1.4rem; margin-bottom:8px; color:#ffffff;">Pago de Citas Confirmadas y Tratamientos</h3>
+          <p style="font-size:0.92rem; color:#f3e8ff; margin-bottom:16px; line-height:1.5;">
+            1️⃣ Primero agenda tu cita arriba.<br/>
+            2️⃣ Escanea el QR desde tu app <strong>Yape</strong> o yapea al número oficial.<br/>
+            3️⃣ Envíanos la captura de tu comprobante por WhatsApp.
+          </p>
+
+          <div class="yape-holder-box">
+            <span style="display:block; font-size:0.76rem; text-transform:uppercase; letter-spacing:0.05em; color:#e9d5ff; margin-bottom:2px;">Titular Oficial de Yape</span>
+            <strong>Anderson Johel Pompa Castrejón</strong>
+            <span>📱 Número Yape / WhatsApp: 983 104 789</span>
+          </div>
+
+          <div class="yape-actions-grid">
+            <button type="button" class="btn-yape-teal" id="copyYapeBtn">
+              📋 Copiar Número: 983 104 789
+            </button>
+            <a href="https://wa.me/51983104789?text=Hola%20Doc%20Anderson%20%F0%9F%A6%B7%2C%20ya%20agend%C3%A9%20mi%20cita%20y%20le%20env%C3%ADo%20mi%20comprobante%20de%20pago%20por%20*Yape*%20(Titular%3A%20Anderson%20Johel%20Pompa%20Castrej%C3%B3n)%20%F0%9F%92%9C" target="_blank" rel="noopener" class="btn-yape-white">
+              📲 Enviar Comprobante por WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Frequently Asked Questions -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-tag">Resolvemos tus Dudas</span>
+      <h2>Preguntas Frecuentes</h2>
+    </div>
+
+    <div class="faq-list" id="faqList">
+      <div class="faq-item open">
+        <button class="faq-question">
+          <span>¿Duele la instalación de brackets o el aclaramiento dental?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          ¡Para nada! La instalación de brackets es 100% indolora. Y para el aclaramiento dental LED utilizamos geles desensibilizantes de última generación que cuidan tu esmalte dental.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>¿Desde qué edad atienden a niños en Odontología Pediátrica?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          Atendemos a bebés, niños y adolescentes. Usamos técnicas de adaptación amigables para que pierdan cualquier temor al dentista y cuiden sus dientes felices.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>¿Cómo puedo agendar una cita urgente por dolor dental?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          Escríbenos directamente a nuestro WhatsApp <strong>+51 983 104 789</strong> indicando urgencia dental y te daremos prioridad inmediata para aliviar tu molestia.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dual Interactive Simulators (Placed at the end of the page as requested) -->
   <section class="section-full simulators-bg" id="simuladores">
     <div class="section-header">
       <span class="section-tag">Experiencia Interactiva 3D</span>
@@ -684,7 +1176,6 @@
       <p>Prueba en tu pantalla cómo quedarán tus dientes más blancos o elige el color de tus brackets.</p>
     </div>
 
-    <!-- Mobile Simulator Toggle Tabs (Visible on Mobile so user switches smoothly without scrolling forever) -->
     <div class="sim-mobile-switcher" id="simMobileSwitcher">
       <button class="sim-switch-btn active" data-sim="simWhiteningCard">✨ 1. Aclaramiento LED</button>
       <button class="sim-switch-btn" data-sim="simBracketsCard">🎨 2. Color de Brackets</button>
@@ -826,462 +1317,6 @@
     </div>
   </section>
 
-  <!-- Pediatric Dentistry Spotlight (Using foto1.jpg and foto2.jpg) -->
-  <section class="section" id="pediatria">
-    <div class="pediatric-showcase">
-      <div class="pediatric-photos">
-        <div class="ped-photo-card">
-          <img src="foto1.jpg" alt="Odontología Pediátrica Niña - Dr. Anderson Johel" />
-        </div>
-        <div class="ped-photo-card">
-          <img src="foto2.jpg" alt="Odontología Pediátrica Niño Capitán América - Dr. Anderson Johel" />
-        </div>
-      </div>
-
-      <div class="pediatric-content">
-        <span class="section-tag">Especialistas en Niños 🦸‍♂️🧚‍♀️</span>
-        <h2>Odontología Pediátrica: ¡Visitas divertidas y Cero Miedo!</h2>
-        <p>
-          El <strong>Dr. Anderson Johel</strong> transforma cada consulta en una aventura de superhéroes con paciencia infinita, gorritos temáticos y técnicas indoloras para que tus hijos amen ir al dentista.
-        </p>
-
-        <div class="ped-features">
-          <div class="ped-feat">🛡️ Flúor y Sellantes</div>
-          <div class="ped-feat">🦷 Curaciones sin dolor</div>
-          <div class="ped-feat">🦸‍♂️ Ambiente divertido</div>
-          <div class="ped-feat">💛 Paciencia y cariño</div>
-        </div>
-
-        <a href="https://wa.me/51983104789?text=Hola%20Dr.%20Anderson%20Johel%2C%20quisiera%20agendar%20una%20consulta%20de%20*Odontolog%C3%ADa%20Pedi%C3%A1trica*%20para%20mi%20peque%C3%B1o(a)%20%F0%9F%A7%92%F0%9F%A6%B7" target="_blank" rel="noopener" class="btn btn-whatsapp" style="width:100%;">
-          <span>🧒 Agendar Cita Pediátrica por WhatsApp</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Complete Real Photo Gallery (Swipeable on Mobile + Filterable) -->
-  <section class="section" id="galeria">
-    <div class="section-header">
-      <span class="section-tag">Galería Clínica Real</span>
-      <h2>Conoce nuestro Trabajo Real</h2>
-      <p>Desliza o toca cualquier foto para ampliarla y consultar por ese tratamiento.</p>
-    </div>
-
-    <div class="gallery-filters" id="galleryFilters">
-      <button class="filter-btn active" data-filter="all">Todos (6)</button>
-      <button class="filter-btn" data-filter="ortodoncia">😁 Brackets</button>
-      <button class="filter-btn" data-filter="estetica">✨ Aclaramiento</button>
-      <button class="filter-btn" data-filter="pediatria">🧒 Niños</button>
-      <button class="filter-btn" data-filter="cirugia">🩺 Cirugía</button>
-      <button class="filter-btn" data-filter="doctor">👨‍⚕️ Dr. Anderson</button>
-    </div>
-
-    <div class="gallery-grid" id="galleryGrid">
-      <div class="gallery-item" data-category="ortodoncia">
-        <div class="gallery-img-box" data-img="foto6.jpg" data-title="Instalación de Brackets">
-          <img src="foto6.jpg" alt="Instalación de Brackets - Dr. Anderson Johel" loading="lazy" />
-          <div class="gallery-zoom-hint">🔍 Toca para ampliar</div>
-        </div>
-        <div class="gallery-caption">
-          <div>
-            <h4>Instalación de Brackets</h4>
-            <span>Ortodoncia correctiva y estética</span>
-          </div>
-          <a class="gallery-wa-mini" href="https://wa.me/51983104789?text=Hola%20Dr.%20Anderson%20Johel%2C%20deseo%20informaci%C3%B3n%20sobre%20*Instalaci%C3%B3n%20de%20Brackets*%20%F0%9F%A6%B7" target="_blank" rel="noopener" title="Consultar por WhatsApp">💬</a>
-        </div>
-      </div>
-
-      <div class="gallery-item" data-category="estetica">
-        <div class="gallery-img-box" data-img="foto3.jpg" data-title="Aclaramiento Dental LED">
-          <img src="foto3.jpg" alt="Aclaramiento Dental LED - Dr. Anderson Johel" loading="lazy" />
-          <div class="gallery-zoom-hint">🔍 Toca para ampliar</div>
-        </div>
-        <div class="gallery-caption">
-          <div>
-            <h4>Aclaramiento Dental LED</h4>
-            <span>Sonrisa más blanca y brillante</span>
-          </div>
-          <a class="gallery-wa-mini" href="https://wa.me/51983104789?text=Hola%20Dr.%20Anderson%20Johel%2C%20deseo%20informaci%C3%B3n%20sobre%20*Aclaramiento%20Dental%20LED*%20%E2%9C%A8" target="_blank" rel="noopener" title="Consultar por WhatsApp">💬</a>
-        </div>
-      </div>
-
-      <div class="gallery-item" data-category="cirugia">
-        <div class="gallery-img-box" data-img="foto4.jpg" data-title="Cirugía Oral Especializada">
-          <img src="foto4.jpg" alt="Cirugía Oral - Dr. Anderson Johel" loading="lazy" />
-          <div class="gallery-zoom-hint">🔍 Toca para ampliar</div>
-        </div>
-        <div class="gallery-caption">
-          <div>
-            <h4>Cirugía Oral</h4>
-            <span>Procedimientos seguros y sin dolor</span>
-          </div>
-          <a class="gallery-wa-mini" href="https://wa.me/51983104789?text=Hola%20Dr.%20Anderson%20Johel%2C%20deseo%20informaci%C3%B3n%20sobre%20*Cirug%C3%ADa%20Oral*%20%F0%9F%A9%BA" target="_blank" rel="noopener" title="Consultar por WhatsApp">💬</a>
-        </div>
-      </div>
-
-      <div class="gallery-item" data-category="pediatria">
-        <div class="gallery-img-box" data-img="foto1.jpg" data-title="Odontología Pediátrica">
-          <img src="foto1.jpg" alt="Odontología Pediátrica - Dr. Anderson Johel" loading="lazy" />
-          <div class="gallery-zoom-hint">🔍 Toca para ampliar</div>
-        </div>
-        <div class="gallery-caption">
-          <div>
-            <h4>Odontología Pediátrica</h4>
-            <span>Cuidado preventivo para niños</span>
-          </div>
-          <a class="gallery-wa-mini" href="https://wa.me/51983104789?text=Hola%20Dr.%20Anderson%20Johel%2C%20deseo%20agendar%20una%20cita%20de%20*Odontolog%C3%ADa%20Pedi%C3%A1trica*%20%F0%9F%A7%92" target="_blank" rel="noopener" title="Consultar por WhatsApp">💬</a>
-        </div>
-      </div>
-
-      <div class="gallery-item" data-category="pediatria">
-        <div class="gallery-img-box" data-img="foto2.jpg" data-title="Atención Infantil sin Miedo">
-          <img src="foto2.jpg" alt="Odontología Pediátrica Niño - Dr. Anderson Johel" loading="lazy" />
-          <div class="gallery-zoom-hint">🔍 Toca para ampliar</div>
-        </div>
-        <div class="gallery-caption">
-          <div>
-            <h4>Atención Infantil Amigable</h4>
-            <span>Paciencia y calidez en cada cita</span>
-          </div>
-          <a class="gallery-wa-mini" href="https://wa.me/51983104789?text=Hola%20Dr.%20Anderson%20Johel%2C%20deseo%20informaci%C3%B3n%20para%20la%20atenci%C3%B3n%20dental%20de%20mi%20hijo(a)%20%F0%9F%A6%B8%E2%80%8D%E2%99%82%EF%B8%8F" target="_blank" rel="noopener" title="Consultar por WhatsApp">💬</a>
-        </div>
-      </div>
-
-      <div class="gallery-item" data-category="doctor">
-        <div class="gallery-img-box" data-img="foto5.jpg" data-title="Dr. Anderson Johel - Cirujano Dentista">
-          <img src="foto5.jpg" alt="Dr. Anderson Johel" loading="lazy" />
-          <div class="gallery-zoom-hint">🔍 Toca para ampliar</div>
-        </div>
-        <div class="gallery-caption">
-          <div>
-            <h4>Dr. Anderson Johel</h4>
-            <span>Tu odontólogo de confianza</span>
-          </div>
-          <a class="gallery-wa-mini" href="https://wa.me/51983104789?text=Hola%20Dr.%20Anderson%20Johel%2C%20quiero%20reservar%20una%20consulta%20con%20usted%20%F0%9F%A6%B7" target="_blank" rel="noopener" title="Consultar por WhatsApp">💬</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Instagram & TikTok Social Banner -->
-  <section class="section">
-    <div class="tiktok-banner">
-      <div class="tiktok-glow-1"></div>
-      <div class="tiktok-glow-2"></div>
-
-      <div class="tiktok-info">
-        <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px;">
-          <div class="tiktok-handle-pill" style="margin-bottom:0; border-color:rgba(225, 48, 108, 0.55);">
-            <span>📸 Instagram</span>
-            <strong style="color:#f472b6;">@anderson.johel</strong>
-          </div>
-          <div class="tiktok-handle-pill" style="margin-bottom:0;">
-            <span>🎵 TikTok</span>
-            <strong style="color:#25f4ee;">@andersonjohel</strong>
-          </div>
-        </div>
-        <h2>¡Síguenos en Instagram y TikTok para ver casos reales!</h2>
-        <p>
-          Sigue a <strong>Doc Anderson</strong> en <strong>Instagram (@anderson.johel)</strong> y <strong>TikTok (@andersonjohel)</strong> para ver antes y después, instalación de brackets, blanqueamiento dental y tips para cuidar tu sonrisa.
-        </p>
-        <div style="display:flex; flex-wrap:wrap; gap:12px;">
-          <a href="https://www.instagram.com/anderson.johel?psln=dDF1ZGZvemx4YWNv" target="_blank" rel="noopener" class="btn btn-instagram" style="font-weight:800;">
-            <span>📸 Seguir en Instagram @anderson.johel</span>
-          </a>
-          <a href="https://www.tiktok.com/@andersonjohel?_r=1&_t=ZS-98qqfIxXRzw" target="_blank" rel="noopener" class="btn btn-tiktok" style="background: linear-gradient(90deg, #fe2c55, #25f4ee); color:#0f172a; font-weight:800;">
-            <span>🎵 Ver TikTok @andersonjohel</span>
-          </a>
-        </div>
-      </div>
-
-      <div class="tiktok-cta-box">
-        <img src="foto5.jpg" alt="Doc Anderson Redes Sociales" class="tiktok-avatar" />
-        <strong>Doc Anderson</strong>
-        <span style="font-size:0.82rem; color:#94a3b8;">@anderson.johel • @andersonjohel</span>
-        <div style="display:flex; gap:8px; flex-wrap:wrap; justify-content:center;">
-          <a href="https://www.instagram.com/anderson.johel?psln=dDF1ZGZvemx4YWNv" target="_blank" rel="noopener" class="btn btn-instagram" style="padding:8px 14px; font-size:0.8rem;">
-            📸 Instagram
-          </a>
-          <a href="https://www.tiktok.com/@andersonjohel?_r=1&_t=ZS-98qqfIxXRzw" target="_blank" rel="noopener" class="btn btn-outline" style="padding:8px 14px; font-size:0.8rem;">
-            🎵 TikTok
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Video en Consultorio & Pagos con Yape -->
-  <section class="section" id="video">
-    <div class="section-header">
-      <span class="section-tag">Experiencia Real & Facilidades de Pago</span>
-      <h2>Conoce Nuestro Consultorio en Video y Paga Fácil con Yape</h2>
-      <p>Mira cómo trabajamos en <strong>Doc Anderson — Odontología Integral</strong> y separa tu cita o realiza tus pagos al instante escaneando nuestro QR oficial de <strong>Yape</strong>.</p>
-    </div>
-
-    <div class="video-yape-showcase">
-      <!-- Video Reel Card -->
-      <div class="video-reel-card">
-        <div>
-          <div class="video-reel-header">
-            <span class="video-badge-live">🎬 VIDEO EN CONSULTORIO</span>
-            <span style="font-size:0.82rem; color:#94a3b8; font-weight:600;">Dr. Anderson Johel</span>
-          </div>
-          <h3 style="font-size:1.35rem; margin-bottom:8px; color:#ffffff;">Atención Odontológica en Acción</h3>
-          <p style="font-size:0.92rem; color:#cbd5e1; margin-bottom:16px;">
-            Tecnología moderna, bioseguridad garantizada y un trato 100% amigable para que tu visita sea cómoda y sin dolor.
-          </p>
-        </div>
-
-        <div class="video-player-frame">
-          <video id="clinicVideo" controls autoplay muted loop playsinline preload="metadata" poster="foto5.jpg">
-            <source src="video-pompa.mp4" type="video/mp4" />
-            <source src="video%20pompa.mp4" type="video/mp4" />
-            <source src="assets/video-pompa.mp4" type="video/mp4" />
-            Tu navegador no soporta reproducción de video.
-          </video>
-          <button type="button" class="video-sound-btn" id="toggleVideoSoundBtn">
-            🔊 Activar Audio
-          </button>
-        </div>
-
-        <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center;">
-          <a href="https://wa.me/51983104789?text=Hola%20Doc%20Anderson%2C%20acabo%20de%20ver%20su%20video%20en%20la%20p%C3%A1gina%20web%20y%20quiero%20agendar%20una%20cita%20%F0%9F%A6%B7" target="_blank" rel="noopener" class="btn btn-whatsapp" style="width:100%;">
-            <span>💬 Agendar Cita tras ver el Video</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Official Yape QR Card -->
-      <div class="yape-card" id="yape">
-        <div>
-          <div class="video-reel-header">
-            <span class="yape-top-pill">💜 PAGO RÁPIDO CON YAPE</span>
-            <span style="font-size:0.82rem; color:#e9d5ff; font-weight:700;">QR Oficial Verificado</span>
-          </div>
-          <h3 style="font-size:1.35rem; margin-bottom:6px; color:#ffffff;">Reserva tu Cita o Paga tu Tratamiento con Yape</h3>
-          <p style="font-size:0.9rem; color:#f3e8ff; margin-bottom:10px;">
-            Escanea el código QR desde tu app <strong>Yape</strong> o yapea al número oficial y envíanos tu captura por WhatsApp.
-          </p>
-        </div>
-
-        <div class="yape-qr-wrapper" id="yapeQrBox" title="Toca para ampliar el QR de Yape">
-          <img src="yape.jpg" onerror="this.onerror=null;this.src='YAPE.jpeg';" alt="Código QR Oficial de Yape - Anderson Johel Pompa Castrejón" />
-          <div style="margin-top:8px; font-size:0.8rem; font-weight:800; color:#742284;">
-            🔍 Toca el QR para verlo en pantalla completa
-          </div>
-        </div>
-
-        <div>
-          <div class="yape-holder-box">
-            <span style="display:block; font-size:0.76rem; text-transform:uppercase; letter-spacing:0.05em; color:#e9d5ff; margin-bottom:2px;">Titular Oficial de Yape</span>
-            <strong>Anderson Johel Pompa Castrejón</strong>
-            <span>📱 Número Yape / WhatsApp: 983 104 789</span>
-          </div>
-
-          <div class="yape-actions-grid">
-            <button type="button" class="btn-yape-teal" id="copyYapeBtn">
-              📋 Copiar Número: 983 104 789
-            </button>
-            <a href="https://wa.me/51983104789?text=Hola%20Doc%20Anderson%20%F0%9F%A6%B7%2C%20acabo%20de%20realizar%20un%20pago%20por%20*Yape*%20(Titular%3A%20Anderson%20Johel%20Pompa%20Castrej%C3%B3n)%20y%20le%20env%C3%ADo%20mi%20comprobante%20%F0%9F%92%9C" target="_blank" rel="noopener" class="btn-yape-white">
-              📲 Enviar Comprobante por WhatsApp
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Interactive WhatsApp Appointment Generator -->
-  <section class="section" id="citas">
-    <div class="section-header">
-      <span class="section-tag">Reserva Inmediata</span>
-      <h2>Agenda tu Cita en 30 Segundos</h2>
-      <p>Elige tu tratamiento y turno: armamos tu mensaje listo para enviar al WhatsApp del Dr. Anderson Johel.</p>
-    </div>
-
-    <div class="booking-grid">
-      <form class="booking-form" id="bookingForm" onsubmit="return false;">
-        <h3>Datos de tu Reserva 🦷</h3>
-        <p>Atención directa al WhatsApp <strong>+51 983 104 789</strong>.</p>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label for="patientName">Tu Nombre *</label>
-            <input type="text" id="patientName" class="form-control" placeholder="Ej. María Gómez" required />
-          </div>
-
-          <div class="form-group">
-            <label for="patientWho">¿Para quién es la cita?</label>
-            <select id="patientWho" class="form-control">
-              <option value="Para mí (Adulto/Joven)">Para mí (Adulto / Joven)</option>
-              <option value="Para mi hijo/a (Odontopediatría)">Para mi hijo/a (Niño/a)</option>
-              <option value="Para un familiar">Para un familiar</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label for="patientService">Tratamiento de Interés</label>
-            <select id="patientService" class="form-control">
-              <optgroup label="1. Odontología Preventiva">
-                <option value="Limpieza dental y profilaxis">🪥 Limpieza dental y profilaxis</option>
-                <option value="Aplicación de flúor">🪥 Aplicación de flúor</option>
-                <option value="Sellantes dentales">🪥 Sellantes dentales</option>
-                <option value="Educación en higiene oral">🪥 Educación en higiene oral</option>
-              </optgroup>
-              <optgroup label="2. Odontología Restauradora">
-                <option value="Curaciones dentales con resina">🦷 Curaciones dentales con resina</option>
-                <option value="Restauraciones estéticas">🦷 Restauraciones estéticas</option>
-                <option value="Reconstrucción de dientes fracturados">🦷 Reconstrucción de dientes fracturados</option>
-                <option value="Tratamiento de caries">🦷 Tratamiento de caries</option>
-              </optgroup>
-              <optgroup label="3. Ortodoncia">
-                <option value="Instalación de brackets metálicos" selected>😁 Instalación de brackets metálicos</option>
-                <option value="Brackets estéticos">😁 Brackets estéticos</option>
-                <option value="Ortodoncia con alineadores">😁 Ortodoncia con alineadores</option>
-                <option value="Controles y mantenimiento de ortodoncia">😁 Controles y mantenimiento de ortodoncia</option>
-              </optgroup>
-              <optgroup label="4. Estética Dental">
-                <option value="Blanqueamiento dental">✨ Blanqueamiento dental</option>
-                <option value="Carillas dentales">✨ Carillas dentales</option>
-                <option value="Diseño de sonrisa">✨ Diseño de sonrisa</option>
-                <option value="Cierre de espacios con resina">✨ Cierre de espacios con resina</option>
-              </optgroup>
-              <optgroup label="5. Odontología Pediátrica">
-                <option value="Atención dental para niños">🧒 Atención dental para niños</option>
-                <option value="Tratamiento de caries infantil">🧒 Tratamiento de caries infantil</option>
-                <option value="Pulpectomías y pulpotomías">🧒 Pulpectomías y pulpotomías</option>
-                <option value="Sellantes y aplicación de flúor infantil">🧒 Sellantes y aplicación de flúor</option>
-              </optgroup>
-              <optgroup label="6. Endodoncia">
-                <option value="Tratamiento de conductos">🔬 Tratamiento de conductos</option>
-                <option value="Tratamiento de infecciones pulpares">🔬 Tratamiento de infecciones pulpares</option>
-                <option value="Retratamiento de conductos">🔬 Retratamiento de conductos</option>
-              </optgroup>
-              <optgroup label="7. Cirugía Oral">
-                <option value="Extracciones simples">🩺 Extracciones simples</option>
-                <option value="Extracciones complejas">🩺 Extracciones complejas</option>
-                <option value="Extracción de terceras molares">🩺 Extracción de terceras molares</option>
-                <option value="Cirugía de dientes retenidos">🩺 Cirugía de dientes retenidos</option>
-              </optgroup>
-              <optgroup label="8. Rehabilitación Oral">
-                <option value="Coronas dentales">👑 Coronas dentales</option>
-                <option value="Prótesis fijas y removibles">👑 Prótesis fijas y removibles</option>
-                <option value="Prótesis sobre implantes">👑 Prótesis sobre implantes</option>
-                <option value="Rehabilitación de dientes desgastados o ausentes">👑 Rehabilitación de dientes desgastados o ausentes</option>
-              </optgroup>
-              <optgroup label="9. Periodoncia">
-                <option value="Tratamiento de gingivitis">🌿 Tratamiento de gingivitis</option>
-                <option value="Tratamiento de periodontitis">🌿 Tratamiento de periodontitis</option>
-                <option value="Raspado y alisado radicular">🌿 Raspado y alisado radicular</option>
-                <option value="Mantenimiento periodontal">🌿 Mantenimiento periodontal</option>
-              </optgroup>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="patientDay">Día Preferido</label>
-            <select id="patientDay" class="form-control">
-              <option value="Lo antes posible (Hoy / Mañana)">⚡ Lo antes posible (Hoy / Mañana)</option>
-              <option value="Lunes a Viernes">📅 Entre Lunes y Viernes</option>
-              <option value="Fin de Semana (Sábado)">🌟 Fin de Semana (Sábado)</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label>Turno de Preferencia</label>
-          <div class="shift-pills" id="shiftPills">
-            <button type="button" class="shift-pill active" data-shift="Mañana (9am - 1pm)">☀️ Mañana</button>
-            <button type="button" class="shift-pill" data-shift="Tarde (3pm - 6pm)">🌤️ Tarde</button>
-            <button type="button" class="shift-pill" data-shift="Noche (6pm - 8pm)">🌙 Noche</button>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="patientNotes">Consulta adicional (Opcional)</label>
-          <input type="text" id="patientNotes" class="form-control" placeholder="Ej. Quisiera saber costos o tengo dolor..." />
-        </div>
-
-        <button type="button" id="sendWaBookingBtn" class="btn btn-whatsapp" style="width:100%; padding:16px; font-size:1.05rem;">
-          <span>📲 Enviar Reserva por WhatsApp</span>
-        </button>
-      </form>
-
-      <!-- Live WhatsApp Message Preview -->
-      <div class="wa-preview-panel">
-        <div class="wa-header">
-          <img src="foto5.jpg" alt="Dr. Anderson Johel" />
-          <div class="wa-header-info">
-            <strong>Doc Anderson 🦷</strong>
-            <span>En línea • WhatsApp (+51 983 104 789)</span>
-          </div>
-        </div>
-
-        <div class="wa-chat-body">
-          <div class="wa-bubble-in">
-            ¡Hola! 👋 Soy <strong>Doc Anderson</strong>. Completa tus datos para agendar tu cita hoy mismo.
-          </div>
-
-          <div class="wa-bubble-out" id="waLivePreview">Hola Doc Anderson 🦷, quiero agendar una cita:
-
-👤 *Nombre:* Paciente
-🎯 *Paciente:* Para mí (Adulto/Joven)
-✨ *Tratamiento:* Instalación de brackets metálicos
-📅 *Día:* Lo antes posible (Hoy / Mañana)
-⏰ *Turno:* Mañana (9am - 1pm)
-
-¿Me confirma horarios disponibles por favor?</div>
-        </div>
-
-        <div class="wa-footer-note">
-          🔒 Vista previa automática de tu mensaje de WhatsApp.
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Frequently Asked Questions -->
-  <section class="section">
-    <div class="section-header">
-      <span class="section-tag">Resolvemos tus Dudas</span>
-      <h2>Preguntas Frecuentes</h2>
-    </div>
-
-    <div class="faq-list" id="faqList">
-      <div class="faq-item open">
-        <button class="faq-question">
-          <span>¿Duele la instalación de brackets o el aclaramiento dental?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          ¡Para nada! La instalación de brackets es 100% indolora. Y para el aclaramiento dental LED utilizamos geles desensibilizantes de última generación que cuidan tu esmalte dental.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question">
-          <span>¿Desde qué edad atienden a niños en Odontología Pediátrica?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          Atendemos a bebés, niños y adolescentes. Usamos técnicas de adaptación amigables para que pierdan cualquier temor al dentista y cuiden sus dientes felices.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question">
-          <span>¿Cómo puedo agendar una cita urgente por dolor dental?</span>
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          Escríbenos directamente a nuestro WhatsApp <strong>+51 983 104 789</strong> indicando urgencia dental y te daremos prioridad inmediata para aliviar tu molestia.
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Full-Screen Interactive Story Modal (Mobile & Desktop) -->
   <div class="story-modal" id="storyModal">
     <div class="story-modal-card">
@@ -1350,13 +1385,13 @@
       <span class="mb-icon">🦷</span>
       <span class="mb-label">Servicios</span>
     </a>
-    <a href="#video" class="mb-nav-item">
-      <span class="mb-icon">🎬</span>
-      <span class="mb-label">Video</span>
+    <a href="#citas" class="mb-nav-item">
+      <span class="mb-icon">📅</span>
+      <span class="mb-label">1. Cita</span>
     </a>
     <a href="#yape" class="mb-nav-item">
       <span class="mb-icon">💜</span>
-      <span class="mb-label">Yape</span>
+      <span class="mb-label">2. Yape</span>
     </a>
     <a href="https://wa.me/51983104789?text=Hola%20Doc%20Anderson%2C%20vengo%20de%20su%20web%20y%20quiero%20agendar%20una%20cita%20%F0%9F%A6%B7" target="_blank" rel="noopener" class="mb-nav-item mb-nav-wa">
       <span class="mb-icon">💬</span>
@@ -1397,6 +1432,7 @@
           <li><a href="https://wa.me/51983104789" target="_blank" rel="noopener">📱 WhatsApp: +51 983 104 789</a></li>
           <li><a href="#yape">💜 Yape Oficial: 983 104 789 (Anderson Johel Pompa Castrejón)</a></li>
           <li><a href="#video">🎬 Ver Video del Consultorio</a></li>
+          <li><a href="https://www.facebook.com/share/1LWpPGCaYX/" target="_blank" rel="noopener">📘 Facebook: Doc Anderson — Odontología Integral</a></li>
           <li><a href="https://www.instagram.com/anderson.johel?psln=dDF1ZGZvemx4YWNv" target="_blank" rel="noopener">📸 Instagram: @anderson.johel</a></li>
           <li><a href="https://www.tiktok.com/@andersonjohel?_r=1&_t=ZS-98qqfIxXRzw" target="_blank" rel="noopener">🎵 TikTok: @andersonjohel</a></li>
           <li><a href="#citas">📅 Reservar Cita Online</a></li>
