@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jhuniorvignerzanderv-afk.github.io/DOC-ANDERSON/sitemap.xml
