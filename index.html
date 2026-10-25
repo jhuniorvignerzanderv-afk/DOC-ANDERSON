@@ -965,35 +965,35 @@
           <div class="form-group">
             <label for="patientService">Tratamiento de Interés</label>
             <select id="patientService" class="form-control">
-              <optgroup label="1. Odontología Preventiva">
-                <option value="Limpieza dental y profilaxis">🪥 Limpieza dental y profilaxis</option>
-                <option value="Aplicación de flúor">🪥 Aplicación de flúor</option>
-                <option value="Sellantes dentales">🪥 Sellantes dentales</option>
-                <option value="Educación en higiene oral">🪥 Educación en higiene oral</option>
-              </optgroup>
-              <optgroup label="2. Odontología Restauradora">
-                <option value="Curaciones dentales con resina">🦷 Curaciones dentales con resina</option>
-                <option value="Restauraciones estéticas">🦷 Restauraciones estéticas</option>
-                <option value="Reconstrucción de dientes fracturados">🦷 Reconstrucción de dientes fracturados</option>
-                <option value="Tratamiento de caries">🦷 Tratamiento de caries</option>
-              </optgroup>
-              <optgroup label="3. Ortodoncia">
+              <optgroup label="1. Ortodoncia">
                 <option value="Instalación de brackets metálicos" selected>😁 Instalación de brackets metálicos</option>
                 <option value="Brackets estéticos">😁 Brackets estéticos</option>
                 <option value="Ortodoncia con alineadores">😁 Ortodoncia con alineadores</option>
                 <option value="Controles y mantenimiento de ortodoncia">😁 Controles y mantenimiento de ortodoncia</option>
               </optgroup>
-              <optgroup label="4. Estética Dental">
+              <optgroup label="2. Estética Dental">
                 <option value="Blanqueamiento dental">✨ Blanqueamiento dental</option>
                 <option value="Carillas dentales">✨ Carillas dentales</option>
                 <option value="Diseño de sonrisa">✨ Diseño de sonrisa</option>
                 <option value="Cierre de espacios con resina">✨ Cierre de espacios con resina</option>
               </optgroup>
-              <optgroup label="5. Odontología Pediátrica">
+              <optgroup label="3. Odontología Pediátrica">
                 <option value="Atención dental para niños">🧒 Atención dental para niños</option>
                 <option value="Tratamiento de caries infantil">🧒 Tratamiento de caries infantil</option>
                 <option value="Pulpectomías y pulpotomías">🧒 Pulpectomías y pulpotomías</option>
                 <option value="Sellantes y aplicación de flúor infantil">🧒 Sellantes y aplicación de flúor</option>
+              </optgroup>
+              <optgroup label="4. Odontología Preventiva">
+                <option value="Limpieza dental y profilaxis">🪥 Limpieza dental y profilaxis</option>
+                <option value="Aplicación de flúor">🪥 Aplicación de flúor</option>
+                <option value="Sellantes dentales">🪥 Sellantes dentales</option>
+                <option value="Educación en higiene oral">🪥 Educación en higiene oral</option>
+              </optgroup>
+              <optgroup label="5. Odontología Restauradora">
+                <option value="Curaciones dentales con resina">🦷 Curaciones dentales con resina</option>
+                <option value="Restauraciones estéticas">🦷 Restauraciones estéticas</option>
+                <option value="Reconstrucción de dientes fracturados">🦷 Reconstrucción de dientes fracturados</option>
+                <option value="Tratamiento de caries">🦷 Tratamiento de caries</option>
               </optgroup>
               <optgroup label="6. Endodoncia">
                 <option value="Tratamiento de conductos">🔬 Tratamiento de conductos</option>
@@ -1416,11 +1416,11 @@
       <div>
         <h4>Nuestras 9 Especialidades</h4>
         <ul>
-          <li><a href="#especialidades">1. Odontología Preventiva</a></li>
-          <li><a href="#especialidades">2. Odontología Restauradora</a></li>
-          <li><a href="#especialidades">3. Ortodoncia (Brackets y Alineadores)</a></li>
-          <li><a href="#especialidades">4. Estética Dental y Diseño de Sonrisa</a></li>
-          <li><a href="#pediatria">5. Odontología Pediátrica</a></li>
+          <li><a href="#especialidades">1. Ortodoncia (Brackets y Alineadores)</a></li>
+          <li><a href="#especialidades">2. Estética Dental y Diseño de Sonrisa</a></li>
+          <li><a href="#pediatria">3. Odontología Pediátrica</a></li>
+          <li><a href="#especialidades">4. Odontología Preventiva</a></li>
+          <li><a href="#especialidades">5. Odontología Restauradora</a></li>
           <li><a href="#especialidades">6. Endodoncia</a></li>
           <li><a href="#especialidades">7. Cirugía Oral</a></li>
           <li><a href="#especialidades">8. Rehabilitación Oral y Prótesis</a></li>
@@ -1568,45 +1568,13 @@ if (storyModal) {
   });
 }
 
-// 2. All 9 Official Dental Specialties Data
+// 2. All 9 Official Dental Specialties Data (Numbered 1 to 9 starting from 1. Ortodoncia)
 const TREATMENTS = {
-  preventiva: {
-    title: '1. Odontología Preventiva',
-    desc: 'Protegemos tu sonrisa antes de que aparezcan molestias, eliminando placa y sarro y fortaleciendo el esmalte dental de niños y adultos.',
-    img: 'foto5.jpg',
-    badge: 'Especialidad #1 🪥',
-    time: '30 - 40 min',
-    pain: '100% Indoloro',
-    result: 'Sonrisa limpia y sana',
-    list: [
-      'Limpieza dental y profilaxis',
-      'Aplicación de flúor',
-      'Sellantes dentales',
-      'Educación en higiene oral'
-    ],
-    waText: 'Hola Doc Anderson, me interesa la especialidad de *Odontología Preventiva* (Limpieza dental, profilaxis, flúor o sellantes). ¿Me brinda información? 🪥🦷'
-  },
-  restauradora: {
-    title: '2. Odontología Restauradora',
-    desc: 'Devolvemos la forma, función y estética natural a los dientes afectados por caries o fracturas utilizando resinas de alta estética.',
-    img: 'foto5.jpg',
-    badge: 'Especialidad #2 🦷',
-    time: '30 - 50 min',
-    pain: 'Sin Dolor',
-    result: 'Acabado natural',
-    list: [
-      'Curaciones dentales con resina',
-      'Restauraciones estéticas',
-      'Reconstrucción de dientes fracturados',
-      'Tratamiento de caries'
-    ],
-    waText: 'Hola Doc Anderson, me interesa la especialidad de *Odontología Restauradora* (Curaciones con resina / Tratamiento de caries). ¿Me brinda información? 🦷'
-  },
   ortodoncia: {
-    title: '3. Ortodoncia',
+    title: '1. Ortodoncia',
     desc: 'Alineamos tus dientes y corregimos tu mordida con planes a medida, desde brackets metálicos y estéticos hasta alineadores modernos.',
     img: 'foto6.jpg',
-    badge: 'Especialidad #3 ⭐',
+    badge: 'Especialidad #1 ⭐ • Video Real',
     time: '45 - 60 min',
     pain: '100% Indoloro',
     result: 'Alineación progresiva',
@@ -1619,10 +1587,10 @@ const TREATMENTS = {
     waText: 'Hola Doc Anderson, me interesa la especialidad de *Ortodoncia* (Brackets metálicos, estéticos o alineadores). ¿Me brinda información y disponibilidad? 😁🦷'
   },
   estetica: {
-    title: '4. Estética Dental',
+    title: '2. Estética Dental',
     desc: 'Logra la sonrisa armónica, blanca y radiante que siempre soñaste con tratamientos estéticos mínimamente invasivos y de resultados inmediatos.',
     img: 'foto3.jpg',
-    badge: 'Especialidad #4 ✨',
+    badge: 'Especialidad #2 ✨',
     time: '45 - 60 min',
     pain: 'Sin sensibilidad',
     result: 'Cambio desde 1ra cita',
@@ -1635,10 +1603,10 @@ const TREATMENTS = {
     waText: 'Hola Doc Anderson, me interesa la especialidad de *Estética Dental* (Blanqueamiento, carillas o diseño de sonrisa). ¿Me brinda precios y horarios? ✨🦷'
   },
   pediatria: {
-    title: '5. Odontología Pediátrica',
+    title: '3. Odontología Pediátrica',
     desc: 'Cuidado dental integral y amoroso para bebés y niños. Transformamos la visita al dentista en una experiencia divertida y libre de miedo.',
     img: 'foto1.jpg',
-    badge: 'Especialidad #5 🦸‍♂️',
+    badge: 'Especialidad #3 🦸‍♂️',
     time: '30 - 45 min',
     pain: 'Paciencia y cariño',
     result: 'Niños sin miedo',
@@ -1649,6 +1617,38 @@ const TREATMENTS = {
       'Sellantes y aplicación de flúor'
     ],
     waText: 'Hola Doc Anderson, deseo agendar una consulta de *Odontología Pediátrica* para mi pequeño(a) 🧒🦷'
+  },
+  preventiva: {
+    title: '4. Odontología Preventiva',
+    desc: 'Protegemos tu sonrisa antes de que aparezcan molestias, eliminando placa y sarro y fortaleciendo el esmalte dental de niños y adultos.',
+    img: 'foto5.jpg',
+    badge: 'Especialidad #4 🪥',
+    time: '30 - 40 min',
+    pain: '100% Indoloro',
+    result: 'Sonrisa limpia y sana',
+    list: [
+      'Limpieza dental y profilaxis',
+      'Aplicación de flúor',
+      'Sellantes dentales',
+      'Educación en higiene oral'
+    ],
+    waText: 'Hola Doc Anderson, me interesa la especialidad de *Odontología Preventiva* (Limpieza dental, profilaxis, flúor o sellantes). ¿Me brinda información? 🪥🦷'
+  },
+  restauradora: {
+    title: '5. Odontología Restauradora',
+    desc: 'Devolvemos la forma, función y estética natural a los dientes afectados por caries o fracturas utilizando resinas de alta estética.',
+    img: 'foto5.jpg',
+    badge: 'Especialidad #5 🦷',
+    time: '30 - 50 min',
+    pain: 'Sin Dolor',
+    result: 'Acabado natural',
+    list: [
+      'Curaciones dentales con resina',
+      'Restauraciones estéticas',
+      'Reconstrucción de dientes fracturados',
+      'Tratamiento de caries'
+    ],
+    waText: 'Hola Doc Anderson, me interesa la especialidad de *Odontología Restauradora* (Curaciones con resina / Tratamiento de caries). ¿Me brinda información? 🦷'
   },
   endodoncia: {
     title: '6. Endodoncia',
@@ -1718,6 +1718,7 @@ const TREATMENTS = {
 
 const tabButtons = document.querySelectorAll('.explorer-tab');
 const treatmentDetail = document.getElementById('treatmentDetail');
+const detailImgWrap = document.getElementById('video');
 const detailImg = document.getElementById('detailImg');
 const detailVideo = document.getElementById('detailVideo');
 const toggleVideoSoundBtn = document.getElementById('toggleVideoSoundBtn');
@@ -1746,14 +1747,18 @@ tabButtons.forEach(btn => {
 
     setTimeout(() => {
       if (key === 'ortodoncia') {
+        if (treatmentDetail) treatmentDetail.classList.add('video-layout-desktop');
+        if (detailImgWrap) detailImgWrap.classList.add('video-mode');
         if (detailImg) detailImg.style.display = 'none';
         if (detailVideo) {
           detailVideo.style.display = 'block';
           detailVideo.play().catch(() => {});
         }
         if (toggleVideoSoundBtn) toggleVideoSoundBtn.style.display = 'inline-flex';
-        detailBadge.textContent = 'Especialidad #3 ⭐ • Video Real';
+        detailBadge.textContent = 'Especialidad #1 ⭐ • Video Real';
       } else {
+        if (treatmentDetail) treatmentDetail.classList.remove('video-layout-desktop');
+        if (detailImgWrap) detailImgWrap.classList.remove('video-mode');
         if (detailVideo) {
           detailVideo.pause();
           detailVideo.style.display = 'none';
