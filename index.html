@@ -582,6 +582,110 @@
         font-size: 0.78rem;
       }
     }
+
+    /* ==========================================================================
+       EXCLUSIVE 3D PORTAL MODE: Show ONLY the 3D Clinic until a room is clicked!
+       ========================================================================== */
+    body:not(.room-open-mode) {
+      background: #120f0c !important;
+      overflow-x: hidden;
+    }
+    body:not(.room-open-mode) .top-bar,
+    body:not(.room-open-mode) .navbar,
+    body:not(.room-open-mode) #roomBackBar,
+    body:not(.room-open-mode) .stories-bar-wrapper,
+    body:not(.room-open-mode) .hero,
+    body:not(.room-open-mode) .section,
+    body:not(.room-open-mode) .section-full,
+    body:not(.room-open-mode) .footer,
+    body:not(.room-open-mode) .floating-wa,
+    body:not(.room-open-mode) .mobile-bottom-nav {
+      display: none !important;
+    }
+    body:not(.room-open-mode) .clinic-3d-section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-bottom: none;
+      padding: 16px;
+    }
+
+    /* When a room is clicked (.room-open-mode): hide the 3D map and show ONLY that room's sections */
+    body.room-open-mode .clinic-3d-section,
+    body.room-open-mode .top-bar,
+    body.room-open-mode .navbar {
+      display: none !important;
+    }
+    body.room-open-mode .stories-bar-wrapper:not(.room-active-section),
+    body.room-open-mode .hero:not(.room-active-section),
+    body.room-open-mode .section:not(.room-active-section),
+    body.room-open-mode .section-full:not(.room-active-section),
+    body.room-open-mode .footer:not(.room-active-section) {
+      display: none !important;
+    }
+
+    /* Sticky Top Return-to-3D Bar when viewing an opened room */
+    .room-back-bar {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: linear-gradient(90deg, #16110d 0%, #241c15 50%, #16110d 100%);
+      border-bottom: 2px solid #f59e0b;
+      padding: 12px 18px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+    }
+    .room-back-container {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn-back-3d {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      color: #0f172a !important;
+      font-weight: 800;
+      font-size: 0.92rem;
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: 1.5px solid #fef3c7;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 0 20px rgba(245, 158, 11, 0.45);
+      transition: all 0.2s ease;
+    }
+    .btn-back-3d:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 0 28px rgba(251, 191, 36, 0.75);
+    }
+    .room-quick-tabs {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .room-qtab {
+      background: rgba(255, 255, 255, 0.07);
+      color: #fde68a;
+      border: 1px solid rgba(251, 191, 36, 0.3);
+      padding: 7px 13px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .room-qtab:hover,
+    .room-qtab.active {
+      background: rgba(245, 158, 11, 0.32);
+      color: #ffffff;
+      border-color: #fbbf24;
+    }
   </style>
 </head>
 <body>
@@ -733,6 +837,24 @@
       </div>
     </div>
   </section>
+
+  <!-- Sticky Top Bar shown ONLY when a 3D Room is opened -->
+  <div class="room-back-bar" id="roomBackBar">
+    <div class="room-back-container">
+      <button type="button" class="btn-back-3d" id="closeRoomTo3dBtn">
+        <span>🏥 ← Volver al Consultorio 3D</span>
+      </button>
+
+      <div class="room-quick-tabs" id="roomQuickTabs">
+        <button type="button" class="room-qtab" data-open-room="room-inicio">🏠 Inicio</button>
+        <button type="button" class="room-qtab" data-open-room="room-servicios">🦷 Servicios (1-9)</button>
+        <button type="button" class="room-qtab" data-open-room="room-conocenos">🎬 Conócenos & Videos</button>
+        <button type="button" class="room-qtab" data-open-room="room-instalaciones">🏢 Instalaciones</button>
+        <button type="button" class="room-qtab" data-open-room="room-citas">📅 Agendar Cita</button>
+        <button type="button" class="room-qtab" data-open-room="room-ubicacion">💜 Yape & Contacto</button>
+      </div>
+    </div>
+  </div>
 
   <!-- Interactive Mobile/Web Stories Bar (Like Instagram/TikTok Stories!) -->
   <div class="stories-bar-wrapper" id="inicio">
@@ -1280,7 +1402,7 @@
   </section>
 
   <!-- Facebook, Instagram & TikTok Social Banner -->
-  <section class="section">
+  <section class="section" id="redes-sociales">
     <div class="tiktok-banner">
       <div class="tiktok-glow-1"></div>
       <div class="tiktok-glow-2"></div>
@@ -1552,6 +1674,12 @@
         </div>
       </div>
     </div>
+
+    <div style="text-align:center; margin-top:24px;">
+      <a href="#yape" class="btn btn-yape" style="padding:14px 28px; font-size:1rem;">
+        <span>💜 Paso 2: ¿Ya agendaste tu cita? Haz clic aquí para Pagar con Yape →</span>
+      </a>
+    </div>
   </section>
 
   <!-- PASO 2: Pagos con Yape (DESPUÉS de haber agendado la cita) -->
@@ -1602,7 +1730,7 @@
   </section>
 
   <!-- Frequently Asked Questions -->
-  <section class="section">
+  <section class="section" id="faq-section">
     <div class="section-header">
       <span class="section-tag">Resolvemos tus Dudas</span>
       <h2>Preguntas Frecuentes</h2>
@@ -2486,9 +2614,92 @@ document.querySelectorAll('.video-sound-btn[data-target-vid]').forEach(btn => {
   });
 });
 
-// Interactive 3D Isometric Clinic Map Hover & Click Sync
+// Interactive 3D Isometric Clinic Map Hover & Click Sync + Exclusive Room View Mode
 const c3dNavBtns = document.querySelectorAll('.c3d-nav-btn');
 const c3dHotspots = document.querySelectorAll('.c3d-hotspot');
+const roomQuickTabs = document.querySelectorAll('.room-qtab');
+const closeRoomTo3dBtn = document.getElementById('closeRoomTo3dBtn');
+
+// Map each 3D room to the exact sections it opens
+const ROOM_SECTIONS_MAP = {
+  'room-inicio': ['#inicio', '#hero-principal'],
+  'room-servicios': ['#especialidades'],
+  'room-conocenos': ['#videos-clinica', '#redes-sociales'],
+  'room-instalaciones': ['#galeria', '#pediatria', '#simuladores'],
+  'room-citas': ['#citas'],
+  'room-ubicacion': ['#yape', '#faq-section', '.footer']
+};
+
+// Map section hash anchors (#citas, #especialidades, etc.) to their 3D room
+const HASH_TO_ROOM = {
+  '#inicio': 'room-inicio',
+  '#hero-principal': 'room-inicio',
+  '#especialidades': 'room-servicios',
+  '#video': 'room-servicios',
+  '#videos-clinica': 'room-conocenos',
+  '#redes-sociales': 'room-conocenos',
+  '#galeria': 'room-instalaciones',
+  '#pediatria': 'room-instalaciones',
+  '#simuladores': 'room-instalaciones',
+  '#citas': 'room-citas',
+  '#yape': 'room-ubicacion',
+  '#faq-section': 'room-ubicacion'
+};
+
+function open3dRoom(roomKey, scrollTargetSelector) {
+  const selectors = ROOM_SECTIONS_MAP[roomKey];
+  if (!selectors) return;
+
+  // Clear previously active sections
+  document.querySelectorAll('.room-active-section').forEach(el => {
+    el.classList.remove('room-active-section');
+  });
+
+  // Activate only the sections for this room
+  selectors.forEach(sel => {
+    const el = document.querySelector(sel);
+    if (el) el.classList.add('room-active-section');
+  });
+
+  document.body.classList.add('room-open-mode');
+
+  // Update active state on quick tabs & 3D sidebar
+  roomQuickTabs.forEach(t => {
+    t.classList.toggle('active', t.getAttribute('data-open-room') === roomKey);
+  });
+  c3dNavBtns.forEach(b => {
+    b.classList.toggle('active', b.getAttribute('data-room') === roomKey);
+  });
+
+  if (scrollTargetSelector) {
+    const targetEl = document.querySelector(scrollTargetSelector);
+    if (targetEl) {
+      setTimeout(() => targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' }), 40);
+      return;
+    }
+  }
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function closeRoomBackTo3d() {
+  document.body.classList.remove('room-open-mode');
+  // Pause videos when returning to 3D map
+  document.querySelectorAll('video').forEach(v => {
+    try { v.pause(); } catch (e) {}
+  });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+if (closeRoomTo3dBtn) {
+  closeRoomTo3dBtn.addEventListener('click', closeRoomBackTo3d);
+}
+
+roomQuickTabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    const rk = tab.getAttribute('data-open-room');
+    open3dRoom(rk);
+  });
+});
 
 c3dNavBtns.forEach(btn => {
   const roomId = btn.getAttribute('data-room');
@@ -2500,9 +2711,11 @@ c3dNavBtns.forEach(btn => {
   btn.addEventListener('mouseleave', () => {
     if (roomEl) roomEl.classList.remove('highlight-room');
   });
-  btn.addEventListener('click', () => {
-    c3dNavBtns.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
+  btn.addEventListener('click', e => {
+    if (roomId && ROOM_SECTIONS_MAP[roomId]) {
+      e.preventDefault();
+      open3dRoom(roomId);
+    }
   });
 });
 
@@ -2511,6 +2724,29 @@ c3dHotspots.forEach(spot => {
     c3dNavBtns.forEach(b => {
       if (b.getAttribute('data-room') === spot.id) b.classList.add('active');
     });
+  });
+  spot.addEventListener('click', e => {
+    if (spot.id && ROOM_SECTIONS_MAP[spot.id]) {
+      e.preventDefault();
+      open3dRoom(spot.id);
+    }
+  });
+});
+
+// Intercept any internal #hash link inside rooms so it switches rooms seamlessly
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', e => {
+    const href = link.getAttribute('href');
+    if (href === '#mapa-3d') {
+      e.preventDefault();
+      closeRoomBackTo3d();
+      return;
+    }
+    const targetRoom = HASH_TO_ROOM[href];
+    if (targetRoom) {
+      e.preventDefault();
+      open3dRoom(targetRoom, href);
+    }
   });
 });
 
